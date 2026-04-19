@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -n '18,1644p' \"C:\\\\Users\\\\Pedro\\\\Documents\\\\ProjetoVivian\\\\index.html\")",
+      "Read(//tmp/**)",
+      "Bash(cp /tmp/style_extracted.css \"C:\\\\Users\\\\Pedro\\\\Documents\\\\ProjetoVivian\\\\css\\\\style.css\")",
+      "Bash(cp /tmp/app_extracted.js \"C:\\\\Users\\\\Pedro\\\\Documents\\\\ProjetoVivian\\\\js\\\\app.js\")",
+      "Bash(python3:*)"
+    ]
+  }
+}

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dra. Vivian Campos</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://api.whatsapp.com/send/?phone=5547999308000&text=Olá, vim pelo site e gostaria de mais informações sobre a consulta com a Dra. Vivian." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ============================
+     NAVEGAÇÃO
+     ============================ -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Dra. <span>Vivian</span> Campos</a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#imunidade">Especialidades</a></li>
+        <li><a href="#procedimentos">Procedimentos</a></li>
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a href="https://api.whatsapp.com/send/?phone=5547999308000" class="nav-cta" target="_blank">Agendar consulta</a>
+      <button class="nav-hamburger" aria-label="Menu" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================
+     HERO
+     ============================ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div>
+    <img class="hero-photo" src="img/main.png" alt="Dra. Vivian Campos">
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content container">
+    <img class="hero-logo" src="img/logo_bege.png" alt="Logo Instituto Vivian Campos">
+    <p class="hero-crm">CRMSC 15858 &nbsp;|&nbsp; CRMSP 128588</p>
+    <div class="hero-actions">
+      <a href="#sobre" class="btn-primary">
+        Conhecer abordagem
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ============================
+     SOBRE
+     ============================ -->
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="sobre-inner">
+      <div class="sobre-photo-wrap reveal-left">
+        <div class="sobre-photo-frame">
+          <img src="img/bio2.jpg" alt="Dra. Vivian Campos">
+        </div>
+      </div>
+      <div class="sobre-text">
+        <p class="section-label reveal">— Sobre</p>
+        <h2 class="reveal">Prazer, sou a<br><em>Dra. Vivian Campos</em></h2>
+        <p class="reveal">Sou médica com foco em saúde funcional integrativa. Meu objetivo é ajudar você a alcançar o equilíbrio perfeito entre corpo e mente, proporcionando uma vida mais saudável, plena e com muita energia para você fazer tudo que ama.</p>
+        <p class="reveal">Com <strong>17 anos de experiência clínica</strong>, atuo no tratamento integrado da saúde física, alimentação e cuidados esportivos, utilizando técnicas de última geração.</p>
+
+        <div class="sobre-stats reveal">
+          <div class="stat-item">
+            <div class="stat-number"><span class="counter" data-target="17">0</span><span class="stat-unit">+</span></div>
+            <div class="stat-label">Anos de exp.</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number"><span class="counter" data-target="2">0</span></div>
+            <div class="stat-label">Clínicas</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number"><span class="counter" data-target="5">0</span><span class="stat-unit">+</span></div>
+            <div class="stat-label">Pós-graduações</div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <button class="formacao-toggle" id="formacaoToggle">
+            <div class="toggle-arrow">+</div>
+            Formação & Associações
+          </button>
+          <div class="formacao-list" id="formacaoList">
+            <ul>
+              <li>Graduação em Medicina – Universidade Gama Filho, Rio de Janeiro</li>
+              <li>Membro da ASBAI – Associação Brasileira de Alergia e Imunologia desde 2015</li>
+              <li>Membro da ABRAN – Associação Brasileira de Nutrologia desde 2009</li>
+              <li>Membro do Institute of Functional Medicine (IFM) desde 2014</li>
+              <li>Pós-graduação em Biologia Molecular Aplicada à Medicina – FAPES</li>
+              <li>Pós-graduação em Nutrição Clínica e Hospitalar – GANEP</li>
+              <li>Pós-graduação em Gastroenterologia Funcional – Plenitude</li>
+              <li>Diretora do Departamento de Saúde Funcional Integrativa da SBMO</li>
+              <li>Palestrante em Cursos e Pós-Graduações</li>
+              <li>CEO Instituto Vivian Campos – 17 anos de experiência</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top:28px;">
+          <a href="https://api.whatsapp.com/send/?phone=5547999308000" class="btn-primary" target="_blank">
+            Agendar consulta
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     IMUNIDADE / ESPECIALIDADES
+     ============================ -->
+<section class="imunidade" id="imunidade">
+  <div class="container">
+    <div class="imunidade-inner">
+
+      <!-- Coluna esquerda: texto âncora -->
+      <div class="imunidade-intro">
+        <p class="section-label reveal-left">— Especialidades</p>
+        <h2 class="reveal-left">Imunidade &<br><em>Saúde Integral</em></h2>
+        <p class="reveal-left">Doenças autoimunes e muitas outras condições podem ser tratadas e gerenciadas com uma abordagem verdadeiramente personalizada.</p>
+        <p class="reveal-left">Eu trabalho para melhorar a sua imunidade e, com isso, a sua saúde como um todo. Sim, é possível viver melhor.</p>
+
+        <div class="gold-line left reveal-left"></div>
+
+        <div class="reveal-left" style="margin-top:36px;">
+          <a href="https://api.whatsapp.com/send/?phone=5547999308000&text=Olá, quero saber mais sobre o programa da Dra. Vivian." class="btn-primary" target="_blank">
+            Quero saber mais
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coluna direita: grid de especialidades -->
+      <div class="especialidades-grid reveal-right">
+        <div class="esp-item">
+          <span class="esp-num">01</span>
+          <div class="esp-content">
+            <p class="esp-name">SOP & Endometriose</p>
+            <p class="esp-tag">Saúde feminina</p>
+          </div>
+        </div>
+        <div class="esp-item">
+          <span class="esp-num">02</span>
+          <div class="esp-content">
+            <p class="esp-name">Diabetes</p>
+            <p class="esp-tag">Metabolismo</p>
+          </div>
+        </div>
+        <div class="esp-item">
+          <span class="esp-num">03</span>
+          <div class="esp-content">
+            <p class="esp-name">Fibromialgia</p>
+            <p class="esp-tag">Dor crônica</p>
+          </div>
+        </div>
+        <div class="esp-item">
+          <span class="esp-num">04</span>
+          <div class="esp-content">
+            <p class="esp-name">Envelhecimento Saudável</p>
+            <p class="esp-tag">Longevidade</p>
+          </div>
+        </div>
+        <div class="esp-item">
+          <span class="esp-num">05</span>
+          <div class="esp-content">
+            <p class="esp-name">Obesidade</p>
+            <p class="esp-tag">Metabolismo</p>
+          </div>
+        </div>
+        <div class="esp-item">
+          <span class="esp-num">06</span>
+          <div class="esp-content">
+            <p class="esp-name">Alergias</p>
+            <p class="esp-tag">Imunologia</p>
+          </div>
+        </div>
+        <div class="esp-item">
+          <span class="esp-num">07</span>
+          <div class="esp-content">
+            <p class="esp-name">Hipertensão</p>
+            <p class="esp-tag">Cardiovascular</p>
+          </div>
+        </div>
+        <div class="esp-item">
+          <span class="esp-num">08</span>
+          <div class="esp-content">
+            <p class="esp-name">Distúrbios Gastrointestinais</p>
+            <p class="esp-tag">Microbioma</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     ABORDAGEM FUNCIONAL
+     ============================ -->
+<section class="abordagem" id="abordagem">
+  <div class="container">
+    <div class="abordagem-inner">
+      <div class="abordagem-text">
+        <p class="section-label reveal-left">— Abordagem</p>
+        <h2 class="reveal-left">Abordagem <em>funcional<br>integrativa</em></h2>
+        <p class="reveal-left">O foco funcional integrativo pode ajudar a restaurar sua saúde de maneira individualizada, e seu tratamento pode contribuir para a melhoria da sua saúde.</p>
+        <p class="reveal-left">Na minha clínica, cada abordagem é feita para se adequar exatamente às suas necessidades. Eu olho para você como um todo — não apenas para os sintomas.</p>
+        <div class="locais reveal-left">
+          <div class="local-badge"><div class="dot"></div>Joinville, SC</div>
+          <div class="local-badge"><div class="dot"></div>Balneário Camboriú, SC</div>
+        </div>
+        <a href="#contato" class="btn-primary reveal-left">
+          Entre em contato
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="abordagem-visual reveal-right">
+        <div class="abordagem-photo-grid">
+          <div class="grid-photo"><div class="grid-photo-ph gp1"><img src="img/clinica5.jpg" alt="Dra. Vivian Campos"></div></div>
+          <div class="grid-photo"><div class="grid-photo-ph gp2"><img src="img/clinica2.jpg" alt="Dra. Vivian Campos"></div></div>
+          <div class="grid-photo"><div class="grid-photo-ph gp3"><img src="img/clinica1.jpg" alt="Dra. Vivian Campos"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     PROCEDIMENTOS
+     ============================ -->
+<section class="procedimentos" id="procedimentos">
+  <div class="container">
+    <div class="procedimentos-header">
+      <p class="section-label reveal">— Tecnologias & Procedimentos</p>
+      <h2 class="reveal">O que <em>ofereço</em><br>para você</h2>
+      <p class="reveal">Procedimentos avançados e personalizados para tratar as raízes dos problemas, estabelecendo seu bem-estar de forma abrangente e integrada.</p>
+    </div>
+
+    <div class="proc-grid">
+      <div class="proc-card reveal">
+        <div class="proc-number">01</div>
+        <div class="proc-name">REAC — Radiofrequência</div>
+        <p class="proc-desc">Tecnologia avançada que atua no sistema nervoso e nas células, promovendo reprogramação neuromoduladora. Indicada para dores crônicas, distúrbios neurológicos e condições degenerativas.</p>
+        <div class="proc-arrow">→</div>
+      </div>
+      <div class="proc-card reveal">
+        <div class="proc-number">02</div>
+        <div class="proc-name">Es Complex</div>
+        <p class="proc-desc">Junção de quatro tecnologias (Pletismografia, HRV, Resposta Galvânica e Bioimpedância) para perfil de risco cardiovascular e metabólico com alto valor preventivo.</p>
+        <div class="proc-arrow">→</div>
+      </div>
+      <div class="proc-card reveal">
+        <div class="proc-number">03</div>
+        <div class="proc-name">ITA — Imunidade Treinada</div>
+        <p class="proc-desc">Abordagem inovadora que treina o sistema imunológico para resposta eficaz e equilibrada. Redução de inflamações crônicas e prevenção de infecções recorrentes.</p>
+        <div class="proc-arrow">→</div>
+      </div>
+      <div class="proc-card reveal">
+        <div class="proc-number">04</div>
+        <div class="proc-name">Biologix — Exame do Sono</div>
+        <p class="proc-desc">Polissonografia tipo IV para diagnóstico de ronco e apneia do sono. Tecnologia compacta e sem fios, utilizando apenas um celular e sensor portátil.</p>
+        <div class="proc-arrow">→</div>
+      </div>
+      <div class="proc-card reveal">
+        <div class="proc-number">05</div>
+        <div class="proc-name">Inbody — Composição Corporal</div>
+        <p class="proc-desc">Bioimpedância tetrapolar para avaliação precisa da composição corporal. Fundamental para entender saúde metabólica e planejar tratamentos personalizados.</p>
+        <div class="proc-arrow">→</div>
+      </div>
+      <div class="proc-card reveal">
+        <div class="proc-number">06</div>
+        <div class="proc-name">Terapias Injetáveis</div>
+        <p class="proc-desc">Administração de nutrientes via endovenosa, intramuscular ou subcutânea para entrega mais eficaz de substâncias com alta biodisponibilidade.</p>
+        <div class="proc-arrow">→</div>
+      </div>
+      <div class="proc-card reveal">
+        <div class="proc-number">07</div>
+        <div class="proc-name">Terapia de Infravermelho</div>
+        <p class="proc-desc">Tratamento eficaz para alívio de dores, melhora metabólica, desintoxicação e fortalecimento imunológico. Terapia relaxante para diversas condições.</p>
+        <div class="proc-arrow">→</div>
+      </div>
+      <div class="proc-card reveal">
+        <div class="proc-number">08</div>
+        <div class="proc-name">Acompanhamento Nutricional</div>
+        <p class="proc-desc">Nutrição funcional personalizada, focada em equilibrar metabolismo, reduzir inflamações e melhorar a saúde geral considerando objetivos individuais.</p>
+        <div class="proc-arrow">→</div>
+      </div>
+      <div class="proc-card reveal" style="background:rgba(27,67,50,0.2);">
+        <div class="proc-number" style="color:var(--dourado);">+</div>
+        <div class="proc-name">Outros Procedimentos</div>
+        <p class="proc-desc">Entre em contato para conhecer todos os procedimentos disponíveis na clínica e descobrir o melhor protocolo para o seu caso específico.</p>
+        <div class="proc-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     CTA TESTE DE PERSONALIDADE
+     ============================ -->
+<section class="cta-verde">
+  <div class="container">
+    <div class="cta-verde-inner">
+      <div>
+        <p class="section-label reveal">— Descubra seu perfil</p>
+        <h2 class="reveal">Teste de <em>Personalidade</em><br>& Saúde</h2>
+        <p class="reveal">Faça o teste de personalidade e saiba qual é o tratamento mais adequado para as suas necessidades individuais.</p>
+      </div>
+      <a href="teste.html" class="btn-gold reveal">
+        Quero fazer o teste
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     PROGRAMA VERDADEIRA SAÚDE
+     ============================ -->
+<section class="programa" id="programa">
+  <div class="container">
+    <div class="programa-inner">
+      <div class="programa-photos reveal-left">
+        <div class="programa-photo-main">
+          <img src="img/academia2.jpg" alt="Dra. Vivian Campos">
+        </div>
+        <div class="programa-photo-sec">
+          <img src="img/academia1.jpg" alt="Dra. Vivian Campos">
+        </div>
+      </div>
+      <div class="programa-text">
+        <p class="section-label reveal-right">— Programa</p>
+        <h2 class="reveal-right">Programa<br><em>Verdadeira Saúde</em></h2>
+        <p class="reveal-right">O Programa Verdadeira Saúde é a minha abordagem integrativa que pode ajudar a restaurar sua saúde e bem-estar.</p>
+        <p class="reveal-right">Não se trata apenas de tratar sintomas, mas de buscar uma saúde e qualidade de vida melhores. Vamos em busca de uma vida plena e saudável.</p>
+        <div class="reveal-right" style="margin-top:30px;">
+          <a href="https://api.whatsapp.com/send/?phone=5547999308000" class="btn-primary" target="_blank">
+            Clique para saber mais
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     CURSOS
+     ============================ -->
+<section class="cursos" id="cursos">
+  <div class="container">
+    <div class="cursos-header reveal">
+      <p class="section-label">— Programas & Formações</p>
+      <h2>Aprimore sua saúde &<br><em>conhecimento</em></h2>
+      <p class="cursos-sub">Programas exclusivos desenvolvidos pela Dra. Vivian Campos para médicos, profissionais de saúde e pacientes que buscam transformação real.</p>
+    </div>
+
+    <div class="cursos-grid">
+
+      <!-- AIR — Auto Imune Reset -->
+      <div class="curso-card reveal">
+        <div class="curso-card-header" style="background: linear-gradient(135deg, #1a1510 0%, #2d2418 100%);">
+          <div class="curso-card-logo">
+            <img src="img/LogoAIR.png">
+          </div>
+        </div>
+        <div class="curso-card-body">
+          <h3>Mentoria AIR</h3>
+          <p class="curso-full-name">Auto Imune Reset</p>
+          <p class="curso-desc">Programa de mentoria intensivo focado em doenças autoimunes. Aprenda a modular o sistema imunológico e oferecer resultados transformadores aos seus pacientes.</p>
+          <div class="curso-tags">
+            <span>Autoimunidade</span>
+            <span>Modulação imune</span>
+            <span>Protocolo clínico</span>
+          </div>
+        </div>
+        <div class="curso-card-footer">
+          <a href="#contato" class="btn-curso">
+            Em breve — Lista de espera
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- MetabolizeIN Online -->
+      <div class="curso-card reveal">
+        <div class="curso-card-header" style="background: linear-gradient(135deg, #0f1f15 0%, #1B4332 100%);">
+          <div class="curso-card-logo">
+            <img src="img/metabolizein.png">
+          </div>
+        </div>
+        <div class="curso-card-body">
+          <h3>MetabolizeIN Online</h3>
+          <p class="curso-full-name">Programa de Metabolismo Integrativo</p>
+          <p class="curso-desc">Metodologia completa para compreender e tratar disfunções metabólicas com abordagem funcional integrativa. Do diagnóstico ao protocolo.</p>
+          <div class="curso-tags">
+            <span>Metabolismo</span>
+            <span>Funcional</span>
+            <span>Online</span>
+          </div>
+        </div>
+        <div class="curso-card-footer">
+          <a href="#contato" class="btn-curso">
+            Em breve — Lista de espera
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Nutricode -->
+      <div class="curso-card reveal">
+        <div class="curso-card-header" style="background: linear-gradient(135deg, #0a1520 0%, #162536 100%);">
+          <div class="curso-card-logo">
+            <img src="img/nutricode.png">
+          </div>
+        </div>
+        <div class="curso-card-body">
+          <h3>Nutricode</h3>
+          <p class="curso-full-name">Nutrição Funcional Avançada</p>
+          <p class="curso-desc">Decodifique a nutrição individual de cada paciente. Aprenda a usar exames laboratoriais e genética nutricional para prescrições de alta precisão.</p>
+          <div class="curso-tags">
+            <span>Nutrigenômica</span>
+            <span>Lab clínico</span>
+            <span>Prescrição</span>
+          </div>
+        </div>
+        <div class="curso-card-footer">
+          <a href="#contato" class="btn-curso">
+            Em breve — Lista de espera
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Ebook Beleza Perigosa -->
+      <div class="curso-card reveal">
+        <div class="curso-card-header" style="background: linear-gradient(135deg, #1a0f18 0%, #2d1a2a 100%);">
+          <div class="curso-card-logo">
+            <div style="font-family:var(--font-display);font-size:28px;font-weight:400;color:var(--branco);letter-spacing:0.03em;line-height:1.1;">Beleza<br><em style="color:var(--dourado);">Perigosa</em></div>
+          </div>
+        </div>
+        <div class="curso-card-body">
+          <h3>E-book Beleza Perigosa</h3>
+          <p class="curso-full-name">O que ninguém te conta sobre estética</p>
+          <p class="curso-desc">Descubra os riscos ocultos por trás de procedimentos estéticos populares e aprenda como proteger sua saúde sem abrir mão da beleza.</p>
+          <div class="curso-tags">
+            <span>Estética</span>
+            <span>Saúde</span>
+            <span>Prevenção</span>
+          </div>
+        </div>
+        <div class="curso-card-footer">
+          <a href="#contato" class="btn-curso">
+            Em breve — Lista de espera
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA inferior -->
+    <div class="cursos-cta reveal">
+      <p>Todos os programas são desenvolvidos com rigor científico e experiência clínica de 17 anos.</p>
+      <a href="#contato" class="btn-primary">
+        Falar com a equipe
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     BLOG
+     ============================ -->
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="blog-header">
+      <div>
+        <p class="section-label reveal">— Conteúdo</p>
+        <h2 class="reveal">Blog & <em>Artigos</em></h2>
+      </div>
+      <a href="/blog/" class="ver-mais reveal">Ver todos →</a>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card blog-card-large reveal">
+        <div class="blog-card-img">
+          <div class="blog-card-ph bph1" style="height:260px;"></div>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-tag">Imunidade</p>
+          <h3>Como fortalecer o sistema imunológico com medicina funcional integrativa</h3>
+          <p>Descubra como a abordagem integrativa pode transformar sua imunidade de dentro para fora, tratando as causas e não apenas os sintomas...</p>
+          <div class="blog-card-meta">Jan 2025 · 8 min de leitura</div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-card-img">
+          <div class="blog-card-ph bph2" style="height:180px;"></div>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-tag">Nutrição</p>
+          <h3>Alimentação anti-inflamatória: por onde começar</h3>
+          <p>Os princípios da nutrição funcional que transformam a saúde metabólica...</p>
+          <div class="blog-card-meta">Fev 2025 · 5 min</div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-card-img">
+          <div class="blog-card-ph bph3" style="height:180px;"></div>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-tag">REAC</p>
+          <h3>REAC: a tecnologia que está revolucionando a medicina integrativa</h3>
+          <p>Entenda como a radiofrequência assimétrica age no sistema nervoso central...</p>
+          <div class="blog-card-meta">Mar 2025 · 6 min</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     CONTATO
+     ============================ -->
+<section class="contato" id="contato">
+  <div class="container">
+    <div class="contato-inner">
+      <div class="contato-info">
+        <p class="section-label reveal-left">— Fale comigo</p>
+        <h2 class="reveal-left">Vamos cuidar<br>da sua <em>saúde</em></h2>
+        <p class="reveal-left">Estou disponível para atendimento em Joinville e Balneário Camboriú. Entre em contato para agendar sua consulta!</p>
+
+        <div class="clinica-info reveal-left">
+          <h4>Joinville — SC</h4>
+          <p>Endereço da clínica em Joinville</p>
+          <p>Horário de atendimento: Seg–Sex</p>
+        </div>
+        <div class="clinica-info reveal-left">
+          <h4>Balneário Camboriú — SC</h4>
+          <p>Endereço da clínica em Balneário Camboriú</p>
+          <p>Horário de atendimento: Sáb</p>
+        </div>
+
+        <div class="social-btns reveal-left">
+          <a href="https://api.whatsapp.com/send/?phone=5547999308000&text=Olá, vim pelo site e gostaria de agendar uma consulta com a Dra. Vivian." class="social-btn social-btn--wa" target="_blank" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/draviviancampos/" class="social-btn social-btn--ig" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4.5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="contato-photo reveal-right">
+        <img src="img/clinica4_2.jpg" alt="Clínica Dra. Vivian Campos">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="img/logo_verde.png" alt="Logo Dra. Vivian Campos">
+        <p class="footer-crm">CRMSC 15858 · CRMSP 128588</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#imunidade">Especialidades</a></li>
+          <li><a href="#procedimentos">Procedimentos</a></li>
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Procedimentos</h4>
+        <ul>
+          <li><a href="#">REAC</a></li>
+          <li><a href="#">Es Complex</a></li>
+          <li><a href="#">ITA</a></li>
+          <li><a href="#">Biologix</a></li>
+          <li><a href="#">Inbody</a></li>
+          <li><a href="#">Infravermelho</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="#">Joinville, SC</a></li>
+          <li><a href="#">Balneário Camboriú, SC</a></li>
+          <li><a href="https://api.whatsapp.com/send/?phone=5547999308000" target="_blank">(47) 9 9930-8000</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dra. Vivian Campos — Todos os direitos reservados</p>
+      <p>Desenvolvido por Pedro Daguer</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================
+     JAVASCRIPT
+     ============================ -->
+<script src="js/app.js" defer></script>
+
+</body>
+</html>

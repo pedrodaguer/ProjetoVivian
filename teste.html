@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste de Personalidade – Dra. Vivian Campos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       CSS CUSTOM PROPERTIES
+       ======================================== */
+    :root {
+      --verde-muito-escuro: #091510;
+      --verde-escuro:    #1B4332;
+      --verde-medio:     #2D6A4F;
+      --verde-claro:     #3A7D5C;
+      --dourado:         #C9A84C;
+      --dourado-claro:   #E0C068;
+      --dourado-escuro:  #A07830;
+      --preto:           #080808;
+      --preto-suave:     #111111;
+      --cinza-escuro:    #1A1A1A;
+      --bege:            #C8BFB4;
+      --bege-claro:      #DDD6CE;
+      --bege-escuro:     #AFA89F;
+      --branco:          #FFFFFF;
+      --branco-suave:    #F7F4F0;
+      --font-display:  'Cormorant Garamond', Georgia, serif;
+      --font-heading:  'Playfair Display', Georgia, serif;
+      --font-body:     'Montserrat', sans-serif;
+    }
+
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: var(--font-body);
+      background: var(--branco-suave);
+      color: var(--cinza-escuro);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: var(--font-body); }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 80px);
+    }
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      background: var(--verde-muito-escuro);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--branco);
+      text-transform: uppercase;
+    }
+    .nav-logo span { color: var(--dourado); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 1px; background: var(--dourado);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--branco); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--verde-escuro);
+      background: var(--dourado);
+      padding: 10px 22px;
+      border-radius: 2px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--dourado-claro); transform: translateY(-1px); }
+
+    /* ========================================
+       QUIZ PAGE LAYOUT
+       ======================================== */
+    .quiz-page {
+      min-height: 100vh;
+      padding-top: 100px;
+      padding-bottom: 80px;
+      background: var(--branco-suave);
+    }
+
+    .quiz-hero {
+      background: var(--verde-muito-escuro);
+      padding: 60px 0 50px;
+      text-align: center;
+      margin-top: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .quiz-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .quiz-hero-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 14px;
+    }
+    .quiz-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 300;
+      color: var(--branco);
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .quiz-hero h1 em {
+      font-style: italic;
+      color: var(--dourado);
+    }
+    .gold-line {
+      display: block;
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+      margin: 16px auto;
+    }
+    .quiz-hero p {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.06em;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ========================================
+       QUIZ WRAPPER
+       ======================================== */
+    .quiz-wrapper {
+      max-width: 720px;
+      margin: 50px auto 0;
+      padding: 0 20px;
+    }
+
+    /* Progress bar */
+    .progress-bar-wrap {
+      margin-bottom: 36px;
+    }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .progress-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bege-escuro);
+    }
+    .progress-count {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--dourado);
+    }
+    .progress-track {
+      width: 100%;
+      height: 2px;
+      background: rgba(0,0,0,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--verde-escuro), var(--dourado));
+      border-radius: 2px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0%;
+    }
+
+    /* Step: registration */
+    .step-registration {
+      background: var(--branco);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 4px;
+      padding: 44px 48px;
+      text-align: center;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.04);
+    }
+    .step-registration h2 {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--verde-escuro);
+      margin-bottom: 8px;
+    }
+    .step-registration p {
+      font-size: 12px;
+      color: var(--bege-escuro);
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
+    }
+    .form-field {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+    .form-field label {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--verde-escuro);
+      margin-bottom: 8px;
+    }
+    .form-field input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--cinza-escuro);
+      background: var(--branco-suave);
+      transition: border-color 0.3s;
+      outline: none;
+    }
+    .form-field input:focus {
+      border-color: var(--dourado);
+      background: var(--branco);
+    }
+    .btn-start {
+      margin-top: 10px;
+      width: 100%;
+      padding: 14px 28px;
+      background: var(--verde-escuro);
+      color: var(--branco);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-start:hover {
+      background: var(--verde-medio);
+      transform: translateY(-1px);
+    }
+
+    /* Step: question */
+    .step-question {
+      display: none;
+      animation: fadeSlideIn 0.4s ease forwards;
+    }
+    .step-question.active {
+      display: block;
+    }
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .question-card {
+      background: var(--branco);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 4px;
+      padding: 44px 48px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.04);
+    }
+    .question-number {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .question-text {
+      font-family: var(--font-heading);
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 400;
+      color: var(--cinza-escuro);
+      line-height: 1.4;
+      margin-bottom: 32px;
+    }
+    .options-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .option-item {
+      display: block;
+    }
+    .option-item input[type="radio"] {
+      display: none;
+    }
+    .option-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 2px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--cinza-escuro);
+      transition: border-color 0.25s, background 0.25s, color 0.25s;
+      position: relative;
+      line-height: 1.45;
+    }
+    .option-label::before {
+      content: '';
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      border: 1.5px solid rgba(0,0,0,0.2);
+      border-radius: 50%;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .option-item input[type="radio"]:checked + .option-label {
+      border-color: var(--dourado);
+      background: rgba(201,168,76,0.07);
+      color: var(--verde-escuro);
+    }
+    .option-item input[type="radio"]:checked + .option-label::before {
+      border-color: var(--dourado);
+      background: var(--dourado);
+      box-shadow: inset 0 0 0 4px var(--branco);
+    }
+    .option-label:hover {
+      border-color: var(--dourado);
+      background: rgba(201,168,76,0.04);
+    }
+
+    .question-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+      gap: 12px;
+    }
+    .btn-prev, .btn-next {
+      padding: 11px 28px;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, color 0.3s;
+    }
+    .btn-prev {
+      border: 1px solid rgba(0,0,0,0.15);
+      color: var(--bege-escuro);
+      background: transparent;
+    }
+    .btn-prev:hover {
+      border-color: var(--verde-escuro);
+      color: var(--verde-escuro);
+    }
+    .btn-next {
+      background: var(--verde-escuro);
+      color: var(--branco);
+      margin-left: auto;
+    }
+    .btn-next:hover {
+      background: var(--verde-medio);
+      transform: translateY(-1px);
+    }
+    .btn-next:disabled {
+      background: var(--bege-claro);
+      color: var(--bege-escuro);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Step: result */
+    .step-result {
+      display: none;
+      animation: fadeSlideIn 0.5s ease forwards;
+    }
+    .step-result.active {
+      display: block;
+    }
+    .result-card {
+      background: var(--branco);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+    }
+    .result-header {
+      background: var(--verde-muito-escuro);
+      padding: 48px 48px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .result-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(201,168,76,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .result-header-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 12px;
+    }
+    .result-profile-name {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 300;
+      color: var(--branco);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .result-profile-name em {
+      font-style: italic;
+      color: var(--dourado);
+    }
+    .result-body {
+      padding: 40px 48px;
+    }
+    .result-scores-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--bege-escuro);
+      margin-bottom: 20px;
+    }
+    .result-scores {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .score-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .score-type-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--verde-escuro);
+      width: 100px;
+      flex-shrink: 0;
+    }
+    .score-bar-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(0,0,0,0.07);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--verde-escuro), var(--dourado));
+      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0%;
+    }
+    .score-bar-fill.dominant {
+      background: linear-gradient(90deg, var(--dourado-escuro), var(--dourado));
+    }
+    .score-pct {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cinza-escuro);
+      width: 44px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .result-desc-box {
+      background: var(--branco-suave);
+      border-left: 3px solid var(--dourado);
+      padding: 24px 28px;
+      border-radius: 0 2px 2px 0;
+      margin-bottom: 36px;
+    }
+    .result-desc-box p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--cinza-escuro);
+      font-weight: 400;
+    }
+
+    .result-cta-section {
+      text-align: center;
+      padding: 0 0 8px;
+    }
+    .result-cta-text {
+      font-size: 12px;
+      color: var(--bege-escuro);
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+    .btn-whatsapp-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: #25D366;
+      color: var(--branco);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.25);
+    }
+    .btn-whatsapp-cta:hover {
+      background: #1ebe5c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.35);
+    }
+    .btn-whatsapp-cta svg {
+      width: 20px; height: 20px; fill: white; flex-shrink: 0;
+    }
+
+    .btn-restart {
+      display: block;
+      margin: 18px auto 0;
+      padding: 10px 24px;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bege-escuro);
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 2px;
+      background: transparent;
+      cursor: pointer;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-restart:hover {
+      border-color: var(--verde-escuro);
+      color: var(--verde-escuro);
+    }
+
+    /* WhatsApp float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 500;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+    }
+    .whatsapp-float svg { width: 26px; height: 26px; fill: white; }
+
+    /* Footer */
+    .quiz-footer {
+      background: var(--verde-muito-escuro);
+      padding: 28px 0;
+      text-align: center;
+      margin-top: 80px;
+    }
+    .quiz-footer p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.06em;
+    }
+    .quiz-footer a { color: var(--dourado); }
+
+    /* Validation */
+    .error-msg {
+      font-size: 11px;
+      color: #c0392b;
+      margin-top: 6px;
+      display: none;
+    }
+    .error-msg.visible { display: block; }
+
+    /* Mobile responsive */
+    @media (max-width: 640px) {
+      .question-card, .step-registration, .result-body { padding: 28px 22px; }
+      .result-header { padding: 36px 22px 28px; }
+      .nav-links { display: none; }
+      .quiz-wrapper { padding: 0 12px; }
+      .question-nav { flex-wrap: wrap; }
+      .btn-prev, .btn-next { width: 100%; text-align: center; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================
+     NAVIGATION
+     ============================ -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Dra. <span>Vivian</span> Campos</a>
+      <ul class="nav-links">
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#imunidade">Especialidades</a></li>
+        <li><a href="index.html#procedimentos">Procedimentos</a></li>
+        <li><a href="index.html#cursos">Cursos</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+      <a href="https://api.whatsapp.com/send/?phone=5547999308000" class="nav-cta" target="_blank">Agendar consulta</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================
+     QUIZ HERO
+     ============================ -->
+<div class="quiz-hero" style="margin-top: 61px;">
+  <div class="container">
+    <p class="quiz-hero-label">Dra. Vivian Campos</p>
+    <h1>Teste de <em>Personalidade</em></h1>
+    <span class="gold-line"></span>
+    <p>Descubra seu perfil e entenda melhor como você age, decide e se relaciona.</p>
+  </div>
+</div>
+
+<!-- ============================
+     QUIZ MAIN
+     ============================ -->
+<main class="quiz-page" style="padding-top: 0;">
+  <div class="quiz-wrapper">
+
+    <!-- Progress bar -->
+    <div class="progress-bar-wrap" id="progressWrap" style="display:none;">
+      <div class="progress-meta">
+        <span class="progress-label">Progresso</span>
+        <span class="progress-count" id="progressCount">1 de 25</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- Step 0: Registration -->
+    <div id="stepRegistration" class="step-registration">
+      <h2>Antes de começar</h2>
+      <p>Preencha seus dados para personalizar o resultado.</p>
+      <div class="form-field">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Seu nome completo">
+        <span class="error-msg" id="erroNome">Por favor, informe seu nome.</span>
+      </div>
+      <div class="form-field">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="seu@email.com">
+        <span class="error-msg" id="erroEmail">Por favor, informe seu e-mail.</span>
+      </div>
+      <div class="form-field">
+        <label for="whatsapp">WhatsApp</label>
+        <input type="tel" id="whatsapp" placeholder="(00) 00000-0000">
+        <span class="error-msg" id="erroWhatsapp">Por favor, informe seu WhatsApp.</span>
+      </div>
+      <button class="btn-start" id="btnStart">Iniciar o teste</button>
+    </div>
+
+    <!-- Steps 1–25: Questions (generated by JS) -->
+    <div id="questionsContainer"></div>
+
+    <!-- Step: Result -->
+    <div id="stepResult" class="step-result">
+      <div class="result-card">
+        <div class="result-header">
+          <p class="result-header-label">Seu perfil predominante</p>
+          <h2 class="result-profile-name" id="resultProfileName"></h2>
+          <span class="gold-line"></span>
+        </div>
+        <div class="result-body">
+          <p class="result-scores-title">Distribuição dos perfis</p>
+          <div class="result-scores" id="resultScores"></div>
+          <div class="result-desc-box">
+            <p id="resultDescription"></p>
+          </div>
+          <div class="result-cta-section">
+            <p class="result-cta-text">Quer aprofundar seu autoconhecimento com a Dra. Vivian? Agende uma consulta.</p>
+            <a id="btnWhatsappCta" href="#" class="btn-whatsapp-cta" target="_blank">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              Falar com a Dra. Vivian
+            </a>
+            <button class="btn-restart" id="btnRestart">Refazer o teste</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer class="quiz-footer">
+  <div class="container">
+    <p>Diretora Técnica Médica: Dra. Vivian Campos | CRM: 123456 | Todos os direitos reservados | <a href="https://galabranding.com.br/" target="_blank">Desenvolvido por Gala Branding</a></p>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://api.whatsapp.com/send/?phone=5547999308000&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+a+consulta+com+a+Dra.+Vivian." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- ============================
+     QUIZ JAVASCRIPT
+     ============================ -->
+<script>
+  // ── Quiz data ──────────────────────────────────────────────────────────────
+  const perguntas = [
+    {
+      pergunta: "1. Eu sou...",
+      opcoes: [
+        { texto: "Idealista, criativo e visionário", tipo: "I" },
+        { texto: "Divertido, espiritual e benéfico", tipo: "C" },
+        { texto: "Confiável, meticuloso e previsível", tipo: "O" },
+        { texto: "Focado, determinado e persistente", tipo: "R" }
+      ]
+    },
+    {
+      pergunta: "2. Eu gosto de...",
+      opcoes: [
+        { texto: "Ser piloto", tipo: "R" },
+        { texto: "Conversar com os passageiros", tipo: "C" },
+        { texto: "Planejar a viagem", tipo: "O" },
+        { texto: "Explorar novas rotas", tipo: "I" }
+      ]
+    },
+    {
+      pergunta: "3. Se você quiser se dar bem comigo...",
+      opcoes: [
+        { texto: "Me dê liberdade", tipo: "I" },
+        { texto: "Me deixe saber sua expectativa", tipo: "O" },
+        { texto: "Lidere, siga ou saia do caminho", tipo: "R" },
+        { texto: "Seja amigável, carinhoso e compreensivo", tipo: "C" }
+      ]
+    },
+    {
+      pergunta: "4. Para conseguir obter bons resultados é preciso...",
+      opcoes: [
+        { texto: "Ter incertezas", tipo: "I" },
+        { texto: "Controlar o essencial", tipo: "O" },
+        { texto: "Diversão e celebração", tipo: "C" },
+        { texto: "Planejar e obter recursos", tipo: "R" }
+      ]
+    },
+    {
+      pergunta: "5. Eu me divirto quando...",
+      opcoes: [
+        { texto: "Estou me exercitando", tipo: "R" },
+        { texto: "Tenho novidades", tipo: "I" },
+        { texto: "Estou com outros", tipo: "C" },
+        { texto: "Determino as regras", tipo: "O" }
+      ]
+    },
+    {
+      pergunta: "6. Eu penso que...",
+      opcoes: [
+        { texto: "Unidos venceremos, divididos perderemos", tipo: "C" },
+        { texto: "O ataque é melhor que a defesa", tipo: "R" },
+        { texto: "É bom ser manso mas andar com um porrete", tipo: "I" },
+        { texto: "Um homem prevenido vale por dois", tipo: "O" }
+      ]
+    },
+    {
+      pergunta: "7. Minha preocupação é...",
+      opcoes: [
+        { texto: "Gerar a ideia global", tipo: "I" },
+        { texto: "Fazer com que as pessoas gostem", tipo: "C" },
+        { texto: "Fazer com que funcione", tipo: "O" },
+        { texto: "Fazer com que aconteça", tipo: "R" }
+      ]
+    },
+    {
+      pergunta: "8. Eu prefiro...",
+      opcoes: [
+        { texto: "Perguntas e respostas", tipo: "I" },
+        { texto: "Ter todos os detalhes", tipo: "O" },
+        { texto: "Vantagens a meu favor", tipo: "R" },
+        { texto: "Que todos tenham a chance de ser ouvido", tipo: "C" }
+      ]
+    },
+    {
+      pergunta: "9. Eu gosto de... ",
+      opcoes: [
+        { texto: "Fazer progresso", tipo: "R" },
+        { texto: "Construir memórias", tipo: "C" },
+        { texto: "Fazer sentido", tipo: "O" },
+        { texto: "Tornar as pessoas desconfortáveis", tipo: "I" }
+      ]
+    },
+    {
+      pergunta: "10. Eu gosto de chegar...",
+      opcoes: [
+        { texto: "Na frente", tipo: "R" },
+        { texto: "Junto", tipo: "C" },
+        { texto: "Na hora", tipo: "O" },
+        { texto: "Em outro lugar", tipo: "I" }
+      ]
+    },
+    {
+      pergunta: "11. Um ótimo dia para mim é quando...",
+      opcoes: [
+        { texto: "Consigo fazer muitas coisas", tipo: "R" },
+        { texto: "Me divirto com meus amigos", tipo: "C" },
+        { texto: "Tudo segue conforme planejado", tipo: "O" },
+        { texto: "Desfruto de coisas novas e estimulantes", tipo: "I" }
+      ]
+    },
+    {
+      pergunta: "12. Eu vejo a morte como...",
+      opcoes: [
+        { texto: "Uma grande aventura misteriosa", tipo: "I" },
+        { texto: "Oportunidade para rever os falecidos", tipo: "C" },
+        { texto: "Um modo de receber recompensas", tipo: "O" },
+        { texto: "Algo que sempre chega muito cedo", tipo: "R" }
+      ]
+    },
+    {
+      pergunta: "13. Minha filosofia de vida é...",
+      opcoes: [
+        { texto: "Há ganhadores e perdedores e eu acredito ser um ganhador", tipo: "R" },
+        { texto: "Para eu ganhar ninguém precisa perder", tipo: "C" },
+        { texto: "Para ganhar tem que seguir as regras", tipo: "O" },
+        { texto: "Para ganhar tem de inventar novas regras", tipo: "I" }
+      ]
+    },
+    {
+      pergunta: "14. Eu sempre gostei de...",
+      opcoes: [
+        { texto: "Explorar", tipo: "I" },
+        { texto: "Evitar surpresas", tipo: "O" },
+        { texto: "Focalizar a meta", tipo: "R" },
+        { texto: "Realizar uma abordagem natural", tipo: "C" }
+      ]
+    },
+    {
+      pergunta: "15. Eu gosto de mudanças se... ",
+      opcoes: [
+        { texto: "Me der uma vantagem competitiva", tipo: "R" },
+        { texto: "For divertido e puder ser compartilhado", tipo: "C" },
+        { texto: "Me der mais liberdade e variedade", tipo: "I" },
+        { texto: "Melhorar ou me der mais controle", tipo: "O" }
+      ]
+    },
+    {
+      pergunta: "16. Não existe nada de errado em... ",
+      opcoes: [
+        { texto: "Se colocar na frente", tipo: "R" },
+        { texto: "Colocar os outros na frente", tipo: "C" },
+        { texto: "Mudar de idéia", tipo: "I" },
+        { texto: "Ser consistente", tipo: "O" }
+      ]
+    },
+    {
+      pergunta: "17. Eu gosto de buscar conselhos de... ",
+      opcoes: [
+        { texto: "Pessoas bem sucedidas", tipo: "R" },
+        { texto: "Anciãos e conselheiros", tipo: "C" },
+        { texto: "Autoridades no assunto", tipo: "O" },
+        { texto: "Lugares os mais estranhos", tipo: "I" }
+      ]
+    },
+    {
+      pergunta: "18. Meu lema é... ",
+      opcoes: [
+        { texto: "Fazer o que precisa ser feito", tipo: "I" },
+        { texto: "Fazer bem feito", tipo: "O" },
+        { texto: "Fazer junto com o grupo", tipo: "C" },
+        { texto: "Simplesmente fazer", tipo: "R" }
+      ]
+    },
+    {
+      pergunta: "19. Eu gosto de... ",
+      opcoes: [
+        { texto: "Complexidade, mesmo se confuso", tipo: "I" },
+        { texto: "Ordem e sistematização", tipo: "O" },
+        { texto: "Calor humano e animação", tipo: "C" },
+        { texto: "Coisas claras e simples", tipo: "R" }
+      ]
+    },
+    {
+      pergunta: "20. Tempo para mim é... ",
+      opcoes: [
+        { texto: "Algo que detesto desperdiçar", tipo: "R" },
+        { texto: "Um grande ciclo", tipo: "C" },
+        { texto: "Uma flecha que leva ao inevitável", tipo: "O" },
+        { texto: "Irrelevante", tipo: "I" }
+      ]
+    },
+    {
+      pergunta: "21. Se eu fosse um bilionário... ",
+      opcoes: [
+        { texto: "Faria doações para muitas entidades", tipo: "C" },
+        { texto: "Criaria uma poupança avantajada", tipo: "O" },
+        { texto: "Faria o que desse na cabeça", tipo: "I" },
+        { texto: "Exigiria bastante com algumas pessoas", tipo: "R" }
+      ]
+    },
+    {
+      pergunta: "22. Eu acredito que... ",
+      opcoes: [
+        { texto: "O destino é mais importante que a jornada", tipo: "R" },
+        { texto: "A jornada é mais importante do que o destino", tipo: "C" },
+        { texto: "Um centavo economizado é um centavo ganho", tipo: "O" },
+        { texto: "Bastam um navio e uma estrela para navegar", tipo: "I" }
+      ]
+    },
+    {
+      pergunta: "23. Eu acredito também que... ",
+      opcoes: [
+        { texto: "Aquele que hesita está perdido", tipo: "R" },
+        { texto: "De grão em grão a galinha enche o papo", tipo: "O" },
+        { texto: "O que vai volta", tipo: "C" },
+        { texto: "Um sorriso ou uma careta é o mesmo.. para quem é cego", tipo: "I" }
+      ]
+    },
+    {
+      pergunta: "24. Eu acredito ainda que... ",
+      opcoes: [
+        { texto: "É melhor prudência que arrependimento", tipo: "O" },
+        { texto: "A autoridade deve ser desafiada", tipo: "I" },
+        { texto: "Ganhar é fundamental", tipo: "R" },
+        { texto: "O coletivo é mais importante que o individual", tipo: "C" }
+      ]
+    },
+    {
+      pergunta: "25. Eu penso que... ",
+      opcoes: [
+        { texto: "Não é fácil ficar encurralado", tipo: "I" },
+        { texto: "É preferível olhar antes de pular", tipo: "O" },
+        { texto: "Duas cabeças pensam melhor que uma", tipo: "C" },
+        { texto: "O coletivo é mais importante que o individual", tipo: "R" }
+      ]
+    }
+  ];
+
+  // ── Profile descriptions ───────────────────────────────────────────────────
+  const perfis = {
+    I: {
+      nome: "Idealista & <em>Inovador</em>",
+      desc: "Você é uma pessoa criativa, visionária e curiosa. Adora explorar novas ideias, questionar o status quo e descobrir possibilidades onde outros não enxergam. Sua mente expansiva é um dom — use-a para criar soluções originais e inspirar quem está ao seu redor."
+    },
+    C: {
+      nome: "Colaborativo & <em>Conectado</em>",
+      desc: "Você valoriza profundamente as pessoas e as relações. É empático, acolhedor e naturalmente voltado para o bem coletivo. Sua presença cria harmonia nos grupos e sua sensibilidade emocional é um diferencial poderoso na construção de laços genuínos."
+    },
+    O: {
+      nome: "Organizado & <em>Meticuloso</em>",
+      desc: "Você é uma pessoa de confiança: analítica, detalhista e comprometida com a qualidade. Prefere planejar antes de agir e tem uma capacidade especial de enxergar riscos e criar sistemas que funcionam. Sua disciplina e consistência são a base de resultados duradouros."
+    },
+    R: {
+      nome: "Realizador & <em>Determinado</em>",
+      desc: "Você é orientado a resultados, focado e altamente produtivo. Sabe o que quer e vai atrás com energia e persistência. Não tem medo de tomar decisões difíceis e sua determinação inspira quem trabalha ao seu lado. Você transforma metas em conquistas."
+    }
+  };
+
+  const tipoLabels = {
+    I: "Idealista",
+    C: "Colaborativo",
+    O: "Organizado",
+    R: "Realizador"
+  };
+
+  // ── State ──────────────────────────────────────────────────────────────────
+  let currentStep = 0;
+  const respostas = new Array(perguntas.length).fill(null);
+  let stepElements = [];
+
+  // ── Build questions ────────────────────────────────────────────────────────
+  function buildQuestions() {
+    const container = document.getElementById('questionsContainer');
+    container.innerHTML = '';
+    stepElements = [];
+
+    perguntas.forEach((p, idx) => {
+      const div = document.createElement('div');
+      div.className = 'step-question';
+      div.id = 'stepQ' + idx;
+
+      div.innerHTML = `
+        <div class="question-card">
+          <span class="question-number">Pergunta ${idx + 1} de ${perguntas.length}</span>
+          <p class="question-text">${p.pergunta}</p>
+          <ul class="options-list">
+            ${p.opcoes.map((op, oi) => `
+              <li class="option-item">
+                <input type="radio" name="q${idx}" id="q${idx}o${oi}" value="${op.tipo}">
+                <label class="option-label" for="q${idx}o${oi}">${op.texto}</label>
+              </li>
+            `).join('')}
+          </ul>
+          <div class="question-nav">
+            ${idx > 0 ? `<button class="btn-prev" data-idx="${idx}">&#8592; Anterior</button>` : '<span></span>'}
+            <button class="btn-next" data-idx="${idx}" disabled>${idx < perguntas.length - 1 ? 'Próxima &#8594;' : 'Ver resultado'}</button>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(div);
+      stepElements.push(div);
+
+      // Restore previous answer if any
+      div.querySelectorAll('input[type="radio"]').forEach(input => {
+        if (respostas[idx] === input.value) {
+          input.checked = true;
+          div.querySelector('.btn-next').disabled = false;
+        }
+        input.addEventListener('change', () => {
+          respostas[idx] = input.value;
+          div.querySelector('.btn-next').disabled = false;
+        });
+      });
+
+      // Navigation
+      const btnNext = div.querySelector('.btn-next');
+      btnNext.addEventListener('click', () => {
+        if (idx < perguntas.length - 1) {
+          showStep(idx + 1);
+        } else {
+          showResult();
+        }
+      });
+
+      const btnPrev = div.querySelector('.btn-prev');
+      if (btnPrev) {
+        btnPrev.addEventListener('click', () => showStep(idx - 1));
+      }
+    });
+  }
+
+  // ── Show / hide steps ──────────────────────────────────────────────────────
+  function showStep(idx) {
+    stepElements.forEach(el => el.classList.remove('active'));
+    stepElements[idx].classList.add('active');
+
+    // Restore checked state
+    const saved = respostas[idx];
+    if (saved !== null) {
+      const radio = stepElements[idx].querySelector(`input[value="${saved}"]`);
+      if (radio) {
+        radio.checked = true;
+        stepElements[idx].querySelector('.btn-next').disabled = false;
+      }
+    } else {
+      stepElements[idx].querySelector('.btn-next').disabled = true;
+    }
+
+    currentStep = idx;
+    updateProgress(idx);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateProgress(idx) {
+    const pct = Math.round(((idx) / perguntas.length) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressCount').textContent = (idx + 1) + ' de ' + perguntas.length;
+  }
+
+  // ── Compute & show result ──────────────────────────────────────────────────
+  function showResult() {
+    const contagem = { I: 0, C: 0, O: 0, R: 0 };
+    respostas.forEach(r => { if (r && contagem[r] !== undefined) contagem[r]++; });
+
+    const total = Object.values(contagem).reduce((a, b) => a + b, 0);
+    const dominante = Object.entries(contagem).sort((a, b) => b[1] - a[1])[0][0];
+
+    // Hide questions, show result
+    stepElements.forEach(el => el.classList.remove('active'));
+    document.getElementById('progressWrap').style.display = 'none';
+
+    const resultStep = document.getElementById('stepResult');
+    resultStep.classList.add('active');
+
+    // Profile name
+    document.getElementById('resultProfileName').innerHTML = perfis[dominante].nome;
+
+    // Score bars
+    const scoresDiv = document.getElementById('resultScores');
+    scoresDiv.innerHTML = '';
+    const ordem = Object.entries(contagem).sort((a, b) => b[1] - a[1]);
+    ordem.forEach(([tipo, count]) => {
+      const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+      const isDom = tipo === dominante;
+      scoresDiv.innerHTML += `
+        <div class="score-row">
+          <span class="score-type-label">${tipoLabels[tipo]}</span>
+          <div class="score-bar-track">
+            <div class="score-bar-fill ${isDom ? 'dominant' : ''}" style="width:${pct}%"></div>
+          </div>
+          <span class="score-pct">${count} (${pct}%)</span>
+        </div>
+      `;
+    });
+
+    // Description
+    document.getElementById('resultDescription').textContent = perfis[dominante].desc;
+
+    // WhatsApp CTA
+    const nome = document.getElementById('nome').value;
+    const tel = document.getElementById('whatsapp').value;
+    const msg = `Olá, meu nome é ${nome}. Fiz o Teste de Personalidade no site da Dra. Vivian Campos e meu perfil predominante é ${tipoLabels[dominante]}. Gostaria de agendar uma consulta!`;
+    const waNum = tel.replace(/\D/g, '') || '5547999308000';
+    document.getElementById('btnWhatsappCta').href = `https://api.whatsapp.com/send/?phone=${waNum}&text=${encodeURIComponent(msg)}`;
+
+    // Progress to 100%
+    document.getElementById('progressFill').style.width = '100%';
+    document.getElementById('progressCount').textContent = '25 de 25';
+    document.getElementById('progressWrap').style.display = 'block';
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Start quiz ─────────────────────────────────────────────────────────────
+  document.getElementById('btnStart').addEventListener('click', () => {
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    let valid = true;
+
+    if (!nome) { document.getElementById('erroNome').classList.add('visible'); valid = false; }
+    else { document.getElementById('erroNome').classList.remove('visible'); }
+    if (!email) { document.getElementById('erroEmail').classList.add('visible'); valid = false; }
+    else { document.getElementById('erroEmail').classList.remove('visible'); }
+    if (!whatsapp) { document.getElementById('erroWhatsapp').classList.add('visible'); valid = false; }
+    else { document.getElementById('erroWhatsapp').classList.remove('visible'); }
+
+    if (!valid) return;
+
+    document.getElementById('stepRegistration').style.display = 'none';
+    document.getElementById('progressWrap').style.display = 'block';
+    buildQuestions();
+    showStep(0);
+  });
+
+  // ── Restart ────────────────────────────────────────────────────────────────
+  document.getElementById('btnRestart').addEventListener('click', () => {
+    respostas.fill(null);
+    document.getElementById('stepResult').classList.remove('active');
+    document.getElementById('stepRegistration').style.display = 'block';
+    document.getElementById('progressWrap').style.display = 'none';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('questionsContainer').innerHTML = '';
+    stepElements = [];
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
