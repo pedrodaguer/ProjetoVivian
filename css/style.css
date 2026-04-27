@@ -114,10 +114,19 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 .nav.scrolled {
   padding: 14px 0;
-  background: var(--verde-muito-escuro);
+  background: rgba(9, 21, 16, 0.97);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+}
+/* backdrop-filter aplicado em ::before para não criar containing block
+   que prende o position:fixed do drawer mobile */
+.nav.scrolled::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  pointer-events: none;
+  z-index: 0;
 }
 .nav-inner {
   display: grid;
@@ -219,13 +228,51 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .nav-hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
-  padding: 4px;
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  flex-shrink: 0;
 }
 .nav-hamburger span {
-  width: 26px; height: 1px;
+  display: block;
+  width: 24px; height: 1px;
   background: var(--branco);
-  transition: 0.3s;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* Drawer móvel */
+.nav-links.nav-open {
+  display: flex !important;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--verde-muito-escuro);
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  z-index: 1050;
+  animation: fadeInMenu 0.25s ease;
+}
+.nav-links.nav-open li { white-space: nowrap; }
+.nav-links.nav-open a {
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.8);
+}
+.nav-links.nav-open a.active,
+.nav-links.nav-open a:hover { color: var(--dourado); }
+
+@keyframes fadeInMenu {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ========================================
@@ -793,13 +840,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   color: rgba(255, 210, 95, 0.56);
 }
 
-@media (max-width: 1024px) {
-  .imunidade-inner { grid-template-columns: 1fr; }
-  .especialidades-grid { grid-template-columns: repeat(4, 1fr); }
-}
-@media (max-width: 700px) {
-  .especialidades-grid { grid-template-columns: 1fr 1fr; }
-}
+/* especialidades — breakpoints integrados no bloco RESPONSIVE abaixo */
 
 /* ========================================
    ABORDAGEM
@@ -1145,7 +1186,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 .programa-photos {
   position: relative;
-  height: 520px;
+  height: clamp(280px, 40vw, 520px);
 }
 .programa-photo-main {
   position: absolute;
@@ -1392,13 +1433,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   line-height: 1.7;
 }
 
-@media (max-width: 1024px) {
-  .cursos-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .cursos-grid { grid-template-columns: 1fr; }
-  .cursos-cta { flex-direction: column; }
-}
+/* cursos — breakpoints integrados no bloco RESPONSIVE abaixo */
 
 /* ========================================
    BLOG
@@ -1756,30 +1791,185 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .whatsapp-float svg { width: 26px; height: 26px; fill: white; }
 
 /* ========================================
-   RESPONSIVE
+   RESPONSIVE — BLOCO CONSOLIDADO
+   Ordem: 1024 → 767 → 640 → 480 → 1440+
    ======================================== */
+
+/* ---- TABLET / COLAPSO 2-COL (≤1024px) ---- */
 @media (max-width: 1024px) {
+  /* Nav */
+  .nav-links { display: none; }
+  .nav-right .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+
+  /* Layouts 2-col → 1-col */
   .sobre-inner,
   .abordagem-inner,
   .programa-inner,
-  .cursos-inner,
   .contato-inner { grid-template-columns: 1fr; }
-  .sobre-photo-wrap { max-width: 400px; }
+
+  .imunidade-inner { grid-template-columns: 1fr; }
+  .especialidades-grid { grid-template-columns: repeat(2, 1fr); }
+
   .proc-grid { grid-template-columns: repeat(2, 1fr); }
+  .cursos-grid { grid-template-columns: repeat(2, 1fr); }
   .blog-grid { grid-template-columns: 1fr 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
+
   .cta-verde-inner { grid-template-columns: 1fr; text-align: center; }
-  .nav-links { display: none; }
-  .nav-cta { display: none; }
-  .nav-hamburger { display: flex; }
+
+  .sobre-photo-wrap { max-width: 440px; }
 }
 
+/* ---- MOBILE-LG (≤767px) ---- */
+@media (max-width: 767px) {
+  /* Nav — cancelar o translateX que existe no desktop, ajustar logo */
+  .nav-inner { transform: none; gap: 12px; }
+  .nav-logo { font-size: clamp(12px, 3.8vw, 16px); }
+
+  /* Hero */
+  .hero { min-height: 100svh; }
+  .hero-photo-left { display: none; },
+  .hero-photo-right { display: none; }
+  .hero-photo {
+    left: -35px;
+    right: 0;
+    transform: translateY(-220px);
+    width: 100%;
+    height: 71%;
+    margin: 0;
+    object-position: center top;
+  }
+  /* Esconder indicador de scroll */
+  .hero-scroll { display: none; }
+
+  .hero-content{
+    top: -10%;
+  }
+
+  /* Sobre */
+  .sobre-photo-wrap { max-width: 100%; }
+  .sobre-photo-frame { aspect-ratio: 4/3; }
+
+  /* Abordagem */
+  .abordagem-inner { gap: 28px; }
+  .abordagem-photo-grid { height: 280px; grid-template-rows: 132px 132px; }
+
+  /* Programa */
+  .programa-inner { gap: 28px; }
+  .programa-photos { height: clamp(220px, 65vw, 340px); }
+
+  /* Contato — ocultar foto lateral */
+  .contato-photo { display: none; }
+
+  /* Blog */
+  .blog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .blog-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  /* CTA verde */
+  .cta-verde-inner { gap: 28px; }
+  .btn-gold { width: 100%; justify-content: center; }
+
+  /* SOBRE — centralizar toggle formação e botão agendar */
+  .sobre-text { text-align: center; }
+  .sobre-text .gold-line.left { margin: 20px auto; }
+  .sobre-text .formacao-toggle { justify-content: center; }
+  .sobre-text .btn-primary { display: inline-flex; }
+  .sobre-stats { justify-content: center; }
+
+  /* ESPECIALIDADES — centralizar gold-line e botão */
+  .imunidade-intro { text-align: center; }
+  .imunidade-intro .gold-line.left { margin: 28px auto; }
+  .imunidade-intro .btn-primary { display: inline-flex; }
+  .imunidade-intro .section-label { text-align: center; }
+
+  /* ABORDAGEM — centralizar botão entre em contato */
+  .abordagem-text { text-align: center; }
+  .abordagem-text .gold-line.left { margin: 20px auto; }
+  .abordagem-text .locais { justify-content: center; }
+  .abordagem-text .btn-primary { display: inline-flex; }
+
+  /* PROGRAMA — centralizar botão quero saber mais */
+  .programa-text { text-align: center; }
+  .programa-text .gold-line.left { margin: 20px auto; }
+  .programa-text .btn-primary { display: inline-flex; }
+}
+
+/* ---- MOBILE-SM (≤640px) ---- */
 @media (max-width: 640px) {
+  /* Procedimentos */
   .proc-grid { grid-template-columns: 1fr; }
-  .blog-grid { grid-template-columns: 1fr; }
+  .proc-card--full {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 24px 20px;
+  }
+  .proc-card--full .proc-arrow { margin-left: 0; position: static; opacity: 1; transform: none; }
+  .proc-card--full .proc-name,
+  .proc-card--full .proc-desc { min-width: 0; }
+  .procedimentos-header { margin-bottom: 36px; }
+
+  /* Cursos */
+  .cursos-grid { grid-template-columns: 1fr; }
+  .cursos-cta { flex-direction: column; gap: 16px; padding: 20px; }
+
+  /* Form */
   .form-row { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; }
-  .abordagem-photo-grid { height: 320px; grid-template-rows: 152px 152px; }
+
+  /* Footer */
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  /* Abordagem */
+  .abordagem-photo-grid { height: 260px; grid-template-rows: 122px 122px; }
+}
+
+/* ---- MOBILE-XS (≤480px) ---- */
+@media (max-width: 480px) {
+  /* Hero */
+  .hero-name { font-size: clamp(36px, 11vw, 54px); }
+  .hero-tagline { letter-spacing: 0.14em; }
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 0 20px;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-outline { width: 100%; justify-content: center; }
+  .hero-logo { width: clamp(150px, 58vw, 260px); }
+
+  /* Especialidades */
+  .imunidade-inner { gap: 32px; }
+  .especialidades-grid { grid-template-columns: 1fr; }
+  .esp-item { padding: 20px 16px; gap: 14px; }
+  .imunidade-intro h2 { font-size: clamp(32px, 9vw, 48px); }
+
+  /* Cursos */
+  .curso-card-header { min-height: 130px; padding: 18px 16px 14px; }
+  .curso-card-body { padding: 16px; }
+  .curso-card-footer { padding: 0 16px 16px; }
+  .cursos-header { margin-bottom: 32px; }
+
+  /* Footer brand */
+  .footer-brand { align-items: flex-start; text-align: left; }
+}
+
+/* ---- ULTRA-WIDE (≥1440px) ---- */
+@media (min-width: 1440px) {
+  .hero-photo { width: clamp(500px, 34vw, 760px); }
+  .hero-photo-left,
+  .hero-photo-right { width: clamp(240px, 17vw, 360px); }
 }
 
 /* ========================================

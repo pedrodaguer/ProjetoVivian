@@ -80,10 +80,12 @@ document.querySelectorAll('.counter').forEach(counter => {
 // =============================
 const formacaoToggle = document.getElementById('formacaoToggle');
 const formacaoList = document.getElementById('formacaoList');
-formacaoToggle.addEventListener('click', () => {
-  formacaoToggle.classList.toggle('open');
-  formacaoList.classList.toggle('open');
-});
+if (formacaoToggle && formacaoList) {
+  formacaoToggle.addEventListener('click', () => {
+    formacaoToggle.classList.toggle('open');
+    formacaoList.classList.toggle('open');
+  });
+}
 
 // Carrossel removido — nova seção de cursos com cards
 
@@ -120,6 +122,29 @@ window.addEventListener('scroll', () => {
     if (a.getAttribute('href') === '#' + current) a.classList.add('active');
   });
 });
+
+// =============================
+// HAMBURGER MENU
+// =============================
+const hamburger = document.getElementById('hamburger');
+const navMenu   = document.querySelector('.nav-links');
+
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('nav-open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    hamburger.classList.toggle('is-open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('nav-open');
+      hamburger.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+}
 
 // =============================
 // PARALLAX HERO (sutil)

@@ -177,3 +177,18 @@
   .dra-hero { padding: 140px 0 70px; }
   .dra-instituto { padding: 36px 24px; }
 }
+
+@media (max-width: 480px) {
+  .dra-hero { padding: 110px 0 50px; }
+  .dra-hero h1 { font-size: clamp(34px, 10vw, 52px); }
+  .dra-hero-sub { letter-spacing: 0.16em; font-size: 10px; }
+
+  .dra-bio-inner { padding: 0 4px; }
+  .dra-bio p { font-size: 15px; }
+
+  .dra-bio-photo { max-width: 100%; margin: 28px auto 44px; }
+  .dra-bio-photo::before { inset: -6px; }
+
+  .dra-instituto { padding: 26px 16px; }
+  .dra-instituto-logo { width: clamp(150px, 52vw, 230px); }
+}
