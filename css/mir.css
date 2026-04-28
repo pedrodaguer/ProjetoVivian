@@ -507,12 +507,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(48px, 7vw, 100px);
-  align-items: start;
+  align-items: stretch;
 }
+
+/* Fotos de palestra: ocultas no mobile, ativadas no desktop */
+.mir-col-p1,
+.mir-col-p2,
+.mir-col-p3 { display: none; }
+
 .mir-mentora-photo-wrap {
   position: relative;
   isolation: isolate;
 }
+/* Mobile: foto única convencional */
 .mir-mentora-photo {
   width: 100%;
   height: clamp(400px, 50vw, 580px);
@@ -537,6 +544,77 @@
   transform: translateX(-50%);
   width: 60px; height: 1px;
   background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+}
+
+/* ── COLLAGE DESKTOP (≥ 769px) ──────────────────────── */
+@media (min-width: 769px) {
+  /*
+   * Mosaico 2×2:
+   *  [palestra2] [palestra1]   ← linha superior (38% da altura)
+   *  [carreira ] [palestra3]   ← linha inferior (62% da altura)
+   *
+   * Coluna esquerda 56% (portrait precisa de mais largura)
+   * Coluna direita  44%
+   */
+  .mir-mentora-photo-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
+    min-height: clamp(460px, 54vw, 640px);
+    gap: 5px;
+    isolation: isolate;
+  }
+
+  /* Linha dourada abaixo não faz sentido no mosaico */
+  .mir-mentora-photo-wrap::after { display: none; }
+
+  /* Foto principal — canto inferior esquerdo */
+  .mir-mentora-photo {
+    grid-column: 1;
+    grid-row: 2;
+    position: static;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Propriedades comuns às 3 fotos de palestra */
+  .mir-col-p1,
+  .mir-col-p2,
+  .mir-col-p3 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
+    filter: contrast(1.02) saturate(1.01);
+  }
+
+  /* palestra2 — canto superior esquerdo */
+  .mir-col-p2 {
+    grid-column: 1;
+    grid-row: 1;
+    object-position: 60% top;
+  }
+
+  /* palestra1 — canto superior direito */
+  .mir-col-p1 {
+    grid-column: 2;
+    grid-row: 1;
+    object-position: 45% top;
+  }
+
+  /* palestra3 — canto inferior direito */
+  .mir-col-p3 {
+    grid-column: 2;
+    grid-row: 2;
+    object-position: center top;
+  }
 }
 .mir-mentora-crm {
   font-family: var(--font-body);
