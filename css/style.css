@@ -99,6 +99,15 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   color: var(--dourado);
 }
 
+.section-label-verde {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--verde-escuro);
+}
+
 .reveal { opacity: 0; transform: translateY(40px); }
 .reveal-left { opacity: 0; transform: translateX(-40px); }
 .reveal-right { opacity: 0; transform: translateX(40px); }
@@ -897,6 +906,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .abordagem-visual {
   position: relative;
   overflow: hidden;
+  transform: translateY(100px);
 }
 .abordagem-photo-grid {
   display: grid;
@@ -1983,3 +1993,79 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .hero-crm,
 .hero-actions,
 .hero-scroll { opacity: 0; }
+
+/* ========================================
+   ESPECIALIDADES — frase intro sem números
+   ======================================== */
+.imunidade-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.esp-intro-wrap {
+  padding: 0 0 12px;
+}
+.esp-intro {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dourado);
+}
+
+/* ========================================
+   SOGIAH — Mapa Imunometabólico
+   ======================================== */
+.sogiah-block {
+  margin: 24px 0 32px;
+  padding: 28px 32px;
+  border-left: 2px solid rgba(201,168,76,0.35);
+  background: rgba(27,67,50,0.06);
+  border-radius: 0 3px 3px 0;
+}
+.sogiah-intro,
+.sogiah-desc {
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 300;
+  line-height: 1.82;
+  color: var(--cinza-escuro);
+  margin-bottom: 14px;
+}
+.sogiah-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sogiah-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.sogiah-letter {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 400;
+  color: var(--verde-escuro);
+  line-height: 1;
+  min-width: 22px;
+  flex-shrink: 0;
+}
+.sogiah-text {
+  font-size: clamp(13px, 0.95vw, 14px);
+  font-weight: 300;
+  color: var(--cinza-escuro);
+  line-height: 1.6;
+}
+.sogiah-text strong {
+  font-weight: 600;
+  color: var(--cinza-escuro);
+}
+
+@media (max-width: 640px) {
+  .sogiah-block { padding: 20px 18px; }
+  .sogiah-letter { font-size: 22px; }
+}

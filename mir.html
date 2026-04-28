@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIR — Mentoria Metabolic Immune Reset | Dra. Vivian Campos</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mir.css">
+</head>
+<body>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://api.whatsapp.com/send/?phone=5547999308000&text=Olá, vim pelo site e gostaria de mais informações sobre a Mentoria MIR." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ============================
+     NAVEGAÇÃO
+     ============================ -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Dra. <span>Vivian</span> Campos</a>
+      <ul class="nav-links">
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="carreira.html">Carreira</a></li>
+        <li><a href="index.html#imunidade">Especialidades</a></li>
+        <li><a href="index.html#procedimentos">Procedimentos</a></li>
+        <li><a href="index.html#cursos" class="active">Cursos</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="https://api.whatsapp.com/send/?phone=5547999308000" class="nav-cta" target="_blank">Agendar consulta</a>
+        <button class="nav-hamburger" aria-label="Menu" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================
+     HERO
+     ============================ -->
+<section class="mir-hero">
+  <!-- Banner como fundo do hero -->
+  <img class="mir-hero-bg" src="img/MIR_banner.webp" alt="">
+  <div class="mir-hero-overlay"></div>
+
+  <div class="container">
+    <div class="mir-hero-inner">
+      <p class="section-label">— Mentoria para Médicos</p>
+      <div class="mir-hero-rule"></div>
+      <div class="mir-logo-block">
+        <img class="mir-logo" src="img/LogoMIR.png" alt="MIR — Metabolic Immune Reset">
+      </div>
+      <h1>Descubra o sistema de raciocínio clínico que permite ao médico identificar a raiz imunometabólica de doenças crônicas complexas — <em>resistência insulínica, obesidade, fadiga, síndrome de ovário policístico, autoimunidade</em> —, montar planos de tratamento individualizados e reter pacientes, enquanto a maioria continua tratando sintomas isolados e perdendo pacientes no 3º mês.</h1>
+      <a href="https://tally.so/r/1Av8Jg" class="mir-btn" target="_blank">
+        Quero aplicar a MIR
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     CICLO DE 6 MESES
+     ============================ -->
+<section class="mir-section mir-section--bege">
+  <div class="container">
+    <div class="mir-section-header reveal">
+      <p class="section-label-verde">— Programa</p>
+      <span class="gold-line left" style="margin:14px 0 0;"></span>
+      <h2>A cada ciclo de 6 meses de mentoria,<br>você vai se aprofundar em:</h2>
+    </div>
+
+    <div class="mir-bullets">
+      <div class="mir-bullet reveal">
+        <div class="mir-bullet-num">01</div>
+        <p><strong>Dominar raciocínio clínico integrado</strong> e aplicado a doenças imunometabólicas (SOGIAH). Saber conduzir casos complexos.</p>
+      </div>
+      <div class="mir-bullet reveal">
+        <div class="mir-bullet-num">02</div>
+        <p><strong>Montar protocolos individualizados</strong> baseados em dados reais.</p>
+      </div>
+      <div class="mir-bullet reveal">
+        <div class="mir-bullet-num">03</div>
+        <p><strong>Estruturar programas de acompanhamento</strong> de 6 a 12 meses, com uma base de pacientes fiéis (e que te indicam).</p>
+      </div>
+      <div class="mir-bullet reveal">
+        <div class="mir-bullet-num">04</div>
+        <p><strong>Fazer parte de ecossistema de médicos</strong> que pensam igual e compartilham estratégias.</p>
+      </div>
+    </div>
+
+    <div class="mir-cta-center reveal">
+      <a href="https://tally.so/r/1Av8Jg" class="mir-btn" target="_blank">
+        Quero aplicar a MIR
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     PARA QUEM É
+     ============================ -->
+<section class="mir-section mir-section--verde-grad">
+  <div class="container">
+    <div class="mir-section-header reveal">
+      <p class="section-label">— Perfil</p>
+      <span class="gold-line left" style="margin:14px 0 0;"></span>
+      <h2>A MIR foi desenhada para <em>dois perfis</em> de médico:</h2>
+    </div>
+
+    <div class="mir-perfis-grid">
+      <!-- Perfil 01 -->
+      <div class="mir-perfil-card reveal">
+        <span class="mir-perfil-tag">Perfil 01</span>
+        <h3>Médico com conhecimento mas sem aplicação prática</h3>
+        <p>Você já fez cursos de medicina integrativa, nutrologia, medicina funcional. Acumulou certificados. Tem conhecimento teórico sólido. Mas quando senta na cadeira para atender, ainda se sente inseguro.</p>
+        <p>Não sabe por onde começar a investigação. Pede exames demais (ou de menos). Monta protocolo genérico porque não sabe como individualizar. Paciente não melhora como esperado.</p>
+        <div class="mir-perfil-resultado">
+          <p class="mir-perfil-resultado-label">Resultado:</p>
+          <p>Você transforma conhecimento teórico em conduta clínica estruturada. Sabe exatamente qual eixo investigar primeiro, quais exames pedir e como montar protocolo individualizado.</p>
+        </div>
+      </div>
+
+      <!-- Perfil 02 -->
+      <div class="mir-perfil-card reveal">
+        <span class="mir-perfil-tag">Perfil 02</span>
+        <h3>Médico experiente mas sem retenção</h3>
+        <p>Seu consultório tem um bom fluxo, seus pacientes melhoram, mas somem no 3º mês. Isso porque não sabe estruturar um programa de acompanhamento que fideliza o paciente e que progressivamente melhora o bem-estar dele.</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="mir-perfil-resultado">
+          <p class="mir-perfil-resultado-label">Resultado:</p>
+          <p>Você agora monta programas de 6 a 12 meses, pensando de forma INTEGRAL. Pacientes OBTÊM RESULTADOS, ficam, se fidelizam e você vê seu consultório crescer.</p>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <div class="mir-cta-center reveal">
+      <a href="https://tally.so/r/1Av8Jg" class="mir-btn" target="_blank">
+        Quero aplicar para a mentoria
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     OS 3 PILARES
+     ============================ -->
+<section class="mir-section mir-section--bege" style="padding-bottom:0;">
+  <div class="container">
+    <div class="mir-pilares-intro reveal">
+      <p class="section-label">— Sistema</p>
+      <h2>O que separa médicos comuns de médicos que tratam <em>quadros metabólicos complexos</em></h2>
+      <p class="mir-pilares-sub">É um sistema que se sustenta em três pilares:</p>
+    </div>
+
+    <!-- PILAR 1 -->
+    <div class="mir-pilar reveal">
+      <div class="mir-pilar-inner">
+        <div class="mir-pilar-num">01</div>
+        <div class="mir-pilar-content">
+          <p class="mir-pilar-label">Pilar 1</p>
+          <h3>Raciocínio Clínico Estruturado</h3>
+          <p class="mir-pilar-sub">O mapa imunometabólico que organiza sua conduta do primeiro minuto da consulta até o protocolo final.</p>
+          <ul class="mir-pilar-bullets">
+            <li>Como identificar qual dos 6 eixos metabólicos investigar primeiro</li>
+            <li>Como ler marcadores laboratoriais pela ótica funcional (valores ótimos vs. valores "normais")</li>
+            <li>Como detectar disfunções metabólicas antes dos exames padrão capturarem</li>
+            <li>Como integrar Submetilação + Oxidação + Glicação + Inflamação + Autoimunidade + Hormônios em protocolo único</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PILAR 2 — adicionar conteúdo -->
+    <div class="mir-pilar reveal">
+      <div class="mir-pilar-inner">
+        <div class="mir-pilar-num">02</div>
+        <div class="mir-pilar-content">
+          <p class="mir-pilar-label">Pilar 2</p>
+          <!-- TODO: inserir título, subtítulo e bullets do Pilar 2 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- PILAR 3 — adicionar conteúdo -->
+    <div class="mir-pilar reveal">
+      <div class="mir-pilar-inner">
+        <div class="mir-pilar-num">03</div>
+        <div class="mir-pilar-content">
+          <p class="mir-pilar-label">Pilar 3</p>
+          <!-- TODO: inserir título, subtítulo e bullets do Pilar 3 -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     COMO FUNCIONA NA PRÁTICA
+     ============================ -->
+<section class="mir-section mir-section--verde-grad">
+  <div class="container">
+    <div class="mir-section-header reveal">
+      <p class="section-label">— Formato</p>
+      <span class="gold-line left" style="margin:14px 0 0;"></span>
+      <h2>Como funciona <em>na prática</em></h2>
+    </div>
+
+    <div class="mir-formato-grid">
+      <div class="mir-formato-item reveal">
+
+        <div class="mir-formato-label">Duração</div>
+        <div class="mir-formato-value">Ciclo de 6 meses</div>
+      </div>
+      <div class="mir-formato-item reveal">
+
+        <div class="mir-formato-label">Encontros ao vivo</div>
+        <div class="mir-formato-value">Quinzenais</div>
+        <div class="mir-formato-desc">2 vezes por mês · via Zoom · 2h cada</div>
+      </div>
+      <div class="mir-formato-item reveal">
+
+        <div class="mir-formato-label">Grupo de suporte</div>
+        <div class="mir-formato-value">WhatsApp ativo</div>
+        <div class="mir-formato-desc">Com Dra. Vivian e mentorados</div>
+      </div>
+      <div class="mir-formato-item reveal">
+
+        <div class="mir-formato-label">Evento presencial</div>
+        <div class="mir-formato-value">1 encontro presencial</div>
+      </div>
+      <div class="mir-formato-item reveal">
+
+        <div class="mir-formato-label">Acesso à plataforma</div>
+        <div class="mir-formato-value">Conteúdos gravados</div>
+        <div class="mir-formato-desc">Disponíveis na plataforma</div>
+      </div>
+      <div class="mir-formato-item reveal">
+
+        <div class="mir-formato-label">Vagas</div>
+        <div class="mir-formato-value">Apenas 20 médicos</div>
+        <div class="mir-formato-desc">Por turma · ambiente intimista</div>
+      </div>
+    </div>
+
+    <div class="mir-cta-center reveal">
+      <a href="https://tally.so/r/1Av8Jg" class="mir-btn" target="_blank">
+        Quero aplicar para a mentoria
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     REDE E COMUNIDADE
+     ============================ -->
+<section class="mir-section mir-section--bege">
+  <div class="container">
+    <div class="mir-section-header reveal">
+      <p class="section-label">— Comunidade</p>
+      <span class="gold-line left" style="margin:14px 0 0;"></span>
+      <h2>Você ganha mais do que conhecimento:<br>passa a fazer parte de <em>uma rede.</em></h2>
+    </div>
+
+    <div class="mir-rede-grid">
+      <div class="mir-rede-card reveal">
+        <div class="mir-rede-card-num">01</div>
+        <div class="mir-rede-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="9" cy="7" r="3"/><circle cx="15" cy="10" r="2.5"/><path d="M3 20c0-3.314 2.686-6 6-6s6 2.686 6 6"/><path d="M15 14c1.5 0 4 1 4 4"/></svg>
+        </div>
+        <h3>Comunidade de médicos que pensam igual</h3>
+        <p>Troca de casos. Discussões clínicas. Parcerias. Indicações mútuas.</p>
+        <div class="mir-rede-card-line"></div>
+      </div>
+      <div class="mir-rede-card reveal">
+        <div class="mir-rede-card-num">02</div>
+        <div class="mir-rede-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3>Acesso direto à Dra. Vivian</h3>
+        <p>Suporte diário no WhatsApp. Não apenas durante as aulas.</p>
+        <div class="mir-rede-card-line"></div>
+      </div>
+      <div class="mir-rede-card reveal">
+        <div class="mir-rede-card-num">03</div>
+        <div class="mir-rede-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>Possibilidade de fazer parte do meu ecossistema</h3>
+        <p>Médicos selecionados podem atender pacientes dentro do meu ecossistema. Minha estrutura traz o paciente qualificado, você atende e recebe.</p>
+        <div class="mir-rede-card-line"></div>
+      </div>
+    </div>
+
+    <div class="mir-cta-center reveal">
+      <a href="https://tally.so/r/1Av8Jg" class="mir-btn" target="_blank">
+        Quero aplicar para a mentoria
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     QUEM VAI TE MENTORAR
+     ============================ -->
+<section class="mir-section mir-section--verde-grad">
+  <div class="container">
+    <div class="mir-mentora-inner">
+      <!-- Foto -->
+      <div class="mir-mentora-photo-wrap reveal-left">
+        <img class="mir-mentora-photo" src="img/carreira.jpg" alt="Dra. Vivian Campos">
+      </div>
+
+      <!-- Bio -->
+      <div class="mir-mentora-bio reveal-right">
+        <p class="section-label">— Quem vai te mentorar</p>
+        <span class="gold-line left" style="margin:14px 0 6px;"></span>
+        <h2>Dra. <em>Vivian Campos</em></h2>
+        <p class="mir-mentora-crm">Dra. Vivian Azevedo Marques de Campos &nbsp;·&nbsp; CRM-SC 15858 &nbsp;·&nbsp; CRM-SP 128588</p>
+
+        <p>Médica com <strong>18 anos de experiência clínica</strong>, focada em Medicina Integrativa e Saúde Metabólica e Imunologia Funcional, visando a saúde integral.</p>
+
+        <p>Possui pós-graduações em Nutrologia, Gastroenterologia Funcional, Medicina Estética, Biologia Molecular e Alergia e Imunologia.</p>
+
+        <p>Investiu <strong>mais de R$ 1 milhão</strong> em sua formação em cursos e congressos nacionais e internacionais.</p>
+
+        <p>Em 2025, obteve o prestigiado título de <strong>IFM Certified Practitioner (IFMCP)</strong> pelo Institute for Functional Medicine (IFM-USA), uma certificação de elite no Brasil.</p>
+
+        <p>Em 2026, foi convidada a integrar o corpo docente da <strong>American Board of Regenerative Medicine</strong>, participando também de sua atuação internacional em Dubai.</p>
+
+        <p>Clinicamente, atende e reverte casos complexos de autoimunidade, resistência insulínica, disfunção mitocondrial e disbiose que outros médicos encaminharam ou desistiram de tratar.</p>
+
+        <p>Os temas abordados incluem inflamação crônica, metais tóxicos, autoimunidade, obesidade e longevidade. Dentre seus congressos de destaque estão o <strong>European Congress of Integrative Medicine</strong> e o <strong>Middle East Regenerative Medicine Congress em Dubai</strong>. Ela também é professora em pós-graduações renomadas no país.</p>
+
+        <div class="mir-mentora-stats">
+          <div class="mir-stat">
+            <div class="mir-stat-num">18</div>
+            <div class="mir-stat-label">Anos de experiência clínica</div>
+          </div>
+          <div class="mir-stat">
+            <div class="mir-stat-num">+20</div>
+            <div class="mir-stat-label">Congressos nacionais e internacionais</div>
+          </div>
+          <div class="mir-stat">
+            <div class="mir-stat-num">R$1M+</div>
+            <div class="mir-stat-label">Investido em formação</div>
+          </div>
+          <div class="mir-stat">
+            <div class="mir-stat-num">IFMCP</div>
+            <div class="mir-stat-label">Certificação de elite — IFM-USA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     COMO ENTRAR
+     ============================ -->
+<section class="mir-section mir-section--bege">
+  <div class="container">
+    <div class="mir-section-header reveal" style="margin:0 auto 56px;text-align:center;max-width:620px;">
+      <p class="section-label">— Processo seletivo</p>
+      <span class="gold-line" style="margin:14px auto 0;"></span>
+      <h2>Como entrar <em>na MIR:</em></h2>
+    </div>
+
+    <div class="mir-steps-list">
+      <div class="mir-step reveal">
+        <div class="mir-step-num">1</div>
+        <div class="mir-step-text">
+          <h4>Aplicação</h4>
+          <p>Você preenche formulário de aplicação (leva 3 minutos)</p>
+        </div>
+      </div>
+      <div class="mir-step reveal">
+        <div class="mir-step-num">2</div>
+        <div class="mir-step-text">
+          <h4>Avaliação</h4>
+          <p>Nossa equipe avalia se seu perfil está alinhado</p>
+        </div>
+      </div>
+      <div class="mir-step reveal">
+        <div class="mir-step-num">3</div>
+        <div class="mir-step-text">
+          <h4>Call de apresentação</h4>
+          <p>Se aprovado, você agenda call de apresentação com a equipe (15–20min)</p>
+        </div>
+      </div>
+      <div class="mir-step reveal">
+        <div class="mir-step-num">4</div>
+        <div class="mir-step-text">
+          <h4>Formalização</h4>
+          <p>Se fizer sentido para ambos os lados, você formaliza inscrição</p>
+        </div>
+      </div>
+      <div class="mir-step reveal">
+        <div class="mir-step-num">5</div>
+        <div class="mir-step-text">
+          <h4>Acesso imediato</h4>
+          <p>Recebe acesso à plataforma + entra no grupo + cronograma completo</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Por que processo seletivo -->
+    <div class="mir-selecao-box reveal">
+      <p class="section-label" style="margin-bottom:16px;">— Por que processo seletivo?</p>
+      <p>Porque queremos médicos comprometidos. Que vão aplicar, levam a sério esse compromisso e querem evoluir para oferecer o que os pacientes mais precisam. <strong>Turma pequena (20 médicos) exige alinhamento.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     APENAS 20 VAGAS / ROI
+     ============================ -->
+<section class="mir-section mir-section--verde-grad" style="margin-top: calc(-1 * clamp(70px, 9vw, 120px)); padding-top: clamp(70px, 9vw, 120px); position: relative; z-index: 1;">
+  <div class="container">
+    <div class="mir-vagas-inner">
+      <div class="mir-section-header reveal" style="max-width:100%;">
+        <p class="section-label">— Vagas</p>
+        <span class="gold-line left" style="margin:14px 0 0;"></span>
+        <h2>Apenas <em>20 vagas</em> por turma</h2>
+      </div>
+
+      <ul class="mir-vagas-bullets">
+        <li class="reveal">Quando atingirmos esse número, fechamos inscrições até a próxima turma.</li>
+        <li class="reveal">Se perder, espera a próxima. E não sabemos quando será.</li>
+      </ul>
+
+      <div class="mir-roi-questions">
+        <div class="mir-roi-q reveal">Quanto vale não travar mais diante de caso complexo?</div>
+        <div class="mir-roi-q reveal">Quanto vale não encaminhar paciente que você poderia conduzir?</div>
+        <div class="mir-roi-q reveal">Quanto vale ter pacientes que ficam 12 meses com você (em vez de 3)?</div>
+      </div>
+
+      <p class="mir-roi-statement reveal">Este é um daqueles raros investimentos que se pagam sozinhos.</p>
+
+      <div class="mir-cta-center reveal">
+        <a href="https://tally.so/r/1Av8Jg" class="mir-btn" target="_blank">
+          Quero Ser Referência Em Saúde Metabólica
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="img/logo_verde.png" alt="Logo Dra. Vivian Campos">
+        <p class="footer-crm">CRMSC 15858 · CRMSP 128588</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="carreira.html">Carreira</a></li>
+          <li><a href="index.html#imunidade">Especialidades</a></li>
+          <li><a href="index.html#procedimentos">Procedimentos</a></li>
+          <li><a href="index.html#cursos">Cursos</a></li>
+          <li><a href="index.html#blog">Blog</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Mentoria</h4>
+        <ul>
+          <li><a href="mir.html">MIR — Metabolic Immune Reset</a></li>
+          <li><a href="index.html#cursos">Todos os cursos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="index.html#contato">Joinville, SC</a></li>
+          <li><a href="index.html#contato">Balneário Camboriú, SC</a></li>
+          <li><a href="https://api.whatsapp.com/send/?phone=5547999308000" target="_blank">(47) 9 9930-8000</a></li>
+          <li><a href="https://www.instagram.com/draviviancampos/" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dra. Vivian Campos — Todos os direitos reservados</p>
+      <p>Desenvolvido por Pedro Daguer</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
