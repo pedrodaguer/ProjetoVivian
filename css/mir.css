@@ -852,8 +852,7 @@
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  /* empurra Vivian para a direita mostrando fundo/DNA na esquerda */
-  object-position: 35% top;
+  object-position: 35% top; /* Vivian na direita, conteúdo na esquerda */
   z-index: 0;
   display: block;
 }
@@ -871,11 +870,66 @@
 }
 /* container deve ocupar 100% para não encolher e centralizar no flex */
 .mir-hero .container { width: 100%; }
-/* texto confinado ao terço esquerdo — não alcança a Dra. Vivian */
+/* conteúdo confinado ao lado esquerdo — não alcança a Dra. Vivian */
 .mir-hero-inner { max-width: 740px; }
 /* banner já fornece textura visual */
 .mir-hero::before,
 .mir-hero::after { display: none; }
+
+/* ── HERO MOBILE ────────────────────────── */
+@media (max-width: 768px) {
+  .mir-hero {
+    min-height: 100svh;
+    padding: 72px 0 56px;
+    align-items: flex-end;
+  }
+  /* No mobile mostra o rosto da Dra. Vivian centralizado */
+  .mir-hero-bg {
+    object-position: 84% 18%;
+  }
+  .mir-hero-overlay {
+    background:
+      linear-gradient(to bottom,
+        rgba(8,8,8,0.55) 0%,
+        rgba(8,8,8,0.85) 50%,
+        rgba(8,8,8,0.92) 70%,
+        rgba(8,8,8,0.97) 100%
+      );
+  }
+  .mir-hero .container { padding: 0 clamp(20px, 6vw, 40px); }
+  .mir-hero-inner {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .mir-hero-rule { margin: 10px auto 28px; }
+  .mir-logo { width: clamp(160px, 60vw, 260px); }
+  .mir-logo-block { margin-bottom: 28px; }
+  .mir-hero h1 {
+    font-size: clamp(13px, 3.5vw, 16px);
+    text-align: center;
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(201,168,76,0.3);
+    padding-top: 16px;
+    margin-bottom: 32px;
+    max-width: 100%;
+  }
+  .mir-hero h1 em { display: inline; }
+  .mir-btn {
+    width: 100%;
+    justify-content: center;
+    max-width: 320px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    padding: 14px 24px;
+    font-size: 10px;
+  }
+}
 
 /* ── SEÇÃO VERDE GRADIENTE ──────────────── */
 .mir-section--verde-grad {
@@ -929,6 +983,14 @@
 .mir-section--bege .mir-pilar-sub           { color: #4a4a4a; font-style: italic; }
 .mir-section--bege .mir-pilar-bullets li    { color: #3a3a3a; }
 
+/* Respiro extra no fim da seção bege antes da verde */
+.mir-section--bege + .mir-section--verde-grad {
+  /* A seção bege ganha padding-bottom extra via ajuste no próprio elemento */
+}
+.mir-section--bege:has(+ .mir-section--verde-grad) {
+  padding-bottom: calc(clamp(70px, 9vw, 120px) + 48px);
+}
+
 /* Steps (Como entrar) em bege */
 .mir-section--bege .mir-step             { border-bottom-color: rgba(27,67,50,0.14); }
 .mir-section--bege .mir-step-num         { border-color: rgba(27,67,50,0.38); color: var(--verde-escuro); }
@@ -950,29 +1012,59 @@
 
 /* ── RESPONSIVE ────────────────────────── */
 @media (max-width: 960px) {
-  .mir-perfis-grid  { grid-template-columns: 1fr; }
-  .mir-rede-grid    { grid-template-columns: 1fr; }
-  .mir-formato-grid { grid-template-columns: 1fr 1fr; }
+  .mir-perfis-grid   { grid-template-columns: 1fr; }
+  .mir-rede-grid     { grid-template-columns: 1fr; }
+  .mir-formato-grid  { grid-template-columns: 1fr 1fr; }
   .mir-mentora-inner { grid-template-columns: 1fr; gap: 48px; }
-  .mir-pilar-inner  { grid-template-columns: 100px 1fr; }
-  .mir-pilar-num    { font-size: clamp(56px, 10vw, 88px); }
+  .mir-pilar-inner   { grid-template-columns: 100px 1fr; }
+  .mir-pilar-num     { font-size: clamp(56px, 10vw, 88px); }
+  .mir-steps-list    { max-width: 100%; }
+  .mir-selecao-box   { max-width: 100%; }
 }
 
 @media (max-width: 640px) {
-  .mir-hero { padding: 130px 0 80px; }
-  .mir-hero h1 { font-size: 12px; margin-bottom: 28px; }
-  .mir-logo { width: clamp(180px, 55vw, 280px); }
-  .mir-formato-grid { grid-template-columns: 1fr; }
-  .mir-pilar-inner  { grid-template-columns: 1fr; }
-  .mir-pilar-num    { font-size: 56px; margin-bottom: -12px; }
+  /* Seções — padding reduzido */
+  .mir-section { padding: clamp(48px, 10vw, 80px) 0; }
+
+  /* Grids */
+  .mir-formato-grid  { grid-template-columns: 1fr; }
+  .mir-pilar-inner   { grid-template-columns: 1fr; }
+  .mir-pilar-num     { font-size: 56px; margin-bottom: -12px; }
   .mir-mentora-stats { grid-template-columns: 1fr 1fr; }
-  .mir-oferta-grid  { grid-template-columns: 1fr; }
+  .mir-oferta-grid   { grid-template-columns: 1fr; }
   .mir-oferta-header { flex-direction: column; }
   .mir-oferta-price-block { text-align: left; }
-  .mir-step { grid-template-columns: 52px 1fr; gap: 16px; }
+
+  /* Steps */
+  .mir-step { grid-template-columns: 48px 1fr; gap: 14px; padding: 22px 0; }
+  .mir-step-num { width: 40px; height: 40px; font-size: 16px; }
+  .mir-steps-list { margin-bottom: 36px; }
+
+  /* Perfis */
+  .mir-perfil-card { padding: 24px 20px; }
+
+  /* Rede cards */
+  .mir-rede-card { padding: 28px 24px; }
+  .mir-rede-card-num { font-size: 60px; }
+
+  /* Mentora */
+  .mir-mentora-photo { height: clamp(260px, 65vw, 400px); }
+
+  /* Bullets */
+  .mir-bullet { grid-template-columns: 36px 1fr; gap: 14px; }
+
+  /* Selecao box */
+  .mir-selecao-box { padding: clamp(20px, 5vw, 32px); }
+
+  /* Section headers */
+  .mir-section-header { margin-bottom: clamp(28px, 6vw, 44px); }
 }
 
 @media (max-width: 480px) {
-  .mir-bullet       { grid-template-columns: 36px 1fr; gap: 14px; }
   .mir-mentora-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .mir-rede-grid     { grid-template-columns: 1fr; gap: 16px; }
+  .mir-roi-q         { font-size: clamp(15px, 4vw, 20px); }
+  .mir-roi-statement { padding: 18px 20px; font-size: clamp(16px, 4.5vw, 22px); }
+  .mir-vagas-bullets li { font-size: 14px; }
+  .mir-pilar-bullets li { font-size: 13px; }
 }
