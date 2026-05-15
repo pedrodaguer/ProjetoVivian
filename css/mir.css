@@ -227,6 +227,7 @@
 .mir-perfis-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto; /* linha 1: corpo (estica) · linha 2: resultado (altura do maior) */
   gap: 24px;
 }
 .mir-perfil-card {
@@ -236,6 +237,12 @@
   padding: clamp(28px, 3.5vw, 48px);
   position: relative;
   overflow: hidden;
+  display: grid;
+  grid-row: span 2;          /* cada card ocupa as 2 linhas do pai */
+  grid-template-rows: subgrid; /* herda as linhas: corpo (1fr) + resultado (auto) */
+}
+.mir-perfil-body {
+  /* ocupa a linha 1fr — cresce para preencher o espaço */
 }
 .mir-perfil-card::before {
   content: '';
@@ -271,7 +278,6 @@
   margin-bottom: 12px;
 }
 .mir-perfil-resultado {
-  margin-top: 24px;
   padding: 20px 22px;
   background: rgba(27,67,50,0.06);
   border-left: 2px solid var(--dourado);
