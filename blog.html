@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Artigos — Dra. Vivian Campos</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://api.whatsapp.com/send/?phone=5547999308000&text=Olá, vim pelo site e gostaria de mais informações sobre a consulta com a Dra. Vivian." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ============================
+     NAVEGAÇÃO
+     ============================ -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Dra. <span>Vivian</span> Campos</a>
+      <ul class="nav-links">
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="carreira.html">Carreira</a></li>
+        <li><a href="index.html#imunidade">Áreas de Atuação</a></li>
+        <li><a href="index.html#procedimentos">Estratégias de Cuidado</a></li>
+        <li><a href="index.html#cursos">Cursos</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html#contato">Contato</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="https://api.whatsapp.com/send/?phone=5547999308000" class="nav-cta" target="_blank">Agendar consulta</a>
+        <button class="nav-hamburger" aria-label="Menu" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================
+     HEADER DA PÁGINA
+     ============================ -->
+<header class="blog-page-hero">
+  <div class="container">
+    <p class="section-label reveal">— Conteúdo</p>
+    <h1 class="reveal">Blog & <em>Artigos</em></h1>
+    <span class="gold-line left reveal"></span>
+    <p class="blog-page-intro reveal">Conteúdos exclusivos sobre imunometabolismo, saúde feminina, longevidade e medicina com visão funcional integrativa — publicados regularmente.</p>
+  </div>
+</header>
+
+<!-- ============================
+     LISTAGEM DE POSTS
+     ============================ -->
+<section class="blog-list">
+  <div class="container">
+    <div class="blog-list-grid">
+
+      <!-- WP LOOP START: while ( have_posts() ) : the_post() -->
+
+      <!-- Post 1 (real) -->
+      <article class="blog-card reveal">
+        <a href="post-detalhes.html" class="blog-card-img">
+          <!-- WP: featured image → the_post_thumbnail('large') -->
+          <div class="blog-card-ph bph1"></div>
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-tag">Imunidade</p>
+          <h3><a href="post-detalhes.html">Benefícios da imunidade treinada por antígeno (ITA)</a></h3>
+          <p>A imunidade treinada por antígeno (ITA) tem ganhado cada vez mais destaque quando o assunto é fortalecer o sistema imunológico de forma eficaz e segura.</p>
+          <div class="blog-card-meta">Set 2024 · 7 min de leitura</div>
+          <a href="post-detalhes.html" class="blog-card-link">Ler mais →</a>
+        </div>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="blog-card reveal">
+        <a href="post-detalhes.html" class="blog-card-img">
+          <!-- WP: featured image → the_post_thumbnail('large') -->
+          <div class="blog-card-ph bph2"></div>
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-tag">Imunometabolismo</p>
+          <h3><a href="post-detalhes.html">Imunometabolismo: quando os exames estão normais mas o corpo não responde</a></h3>
+          <p>Entenda por que tantos pacientes seguem sem respostas mesmo com exames dentro da normalidade — e como o olhar imunometabólico muda a investigação.</p>
+          <div class="blog-card-meta">Out 2024 · 6 min de leitura</div>
+          <a href="post-detalhes.html" class="blog-card-link">Ler mais →</a>
+        </div>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="blog-card reveal">
+        <a href="post-detalhes.html" class="blog-card-img">
+          <!-- WP: featured image → the_post_thumbnail('large') -->
+          <div class="blog-card-ph bph3"></div>
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-tag">Saúde Hormonal</p>
+          <h3><a href="post-detalhes.html">Perimenopausa e menopausa: reorganizando o corpo na transição hormonal</a></h3>
+          <p>A transição hormonal feminina vai muito além dos sintomas. Veja como organizar metabolismo, imunidade e estilo de vida nessa fase.</p>
+          <div class="blog-card-meta">Out 2024 · 5 min de leitura</div>
+          <a href="post-detalhes.html" class="blog-card-link">Ler mais →</a>
+        </div>
+      </article>
+
+      <!-- Post 4 -->
+      <article class="blog-card reveal">
+        <a href="post-detalhes.html" class="blog-card-img">
+          <!-- WP: featured image → the_post_thumbnail('large') -->
+          <div class="blog-card-ph bph4"></div>
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-tag">Autoimunidade</p>
+          <h3><a href="post-detalhes.html">Autoimunidade: por que o sistema imune ataca o próprio corpo</a></h3>
+          <p>Doenças autoimunes têm raízes profundas. Conheça os gatilhos inflamatórios e a lógica de modulação imunológica por trás do cuidado.</p>
+          <div class="blog-card-meta">Nov 2024 · 6 min de leitura</div>
+          <a href="post-detalhes.html" class="blog-card-link">Ler mais →</a>
+        </div>
+      </article>
+
+      <!-- Post 5 -->
+      <article class="blog-card reveal">
+        <a href="post-detalhes.html" class="blog-card-img">
+          <!-- WP: featured image → the_post_thumbnail('large') -->
+          <div class="blog-card-ph bph5"></div>
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-tag">Intestino</p>
+          <h3><a href="post-detalhes.html">Microbiota e o eixo intestino-imunidade: a base esquecida da saúde</a></h3>
+          <p>O intestino conversa diretamente com o sistema imune. Descubra por que a microbiota é peça central no equilíbrio imunometabólico.</p>
+          <div class="blog-card-meta">Nov 2024 · 5 min de leitura</div>
+          <a href="post-detalhes.html" class="blog-card-link">Ler mais →</a>
+        </div>
+      </article>
+
+      <!-- Post 6 -->
+      <article class="blog-card reveal">
+        <a href="post-detalhes.html" class="blog-card-img">
+          <!-- WP: featured image → the_post_thumbnail('large') -->
+          <div class="blog-card-ph bph6"></div>
+        </a>
+        <div class="blog-card-body">
+          <p class="blog-tag">Metabolismo</p>
+          <h3><a href="post-detalhes.html">Resistência insulínica e obesidade: além da balança</a></h3>
+          <p>Emagrecer não é só sobre calorias. Entenda como a resistência insulínica reorganiza o metabolismo e o que realmente muda o jogo.</p>
+          <div class="blog-card-meta">Dez 2024 · 6 min de leitura</div>
+          <a href="post-detalhes.html" class="blog-card-link">Ler mais →</a>
+        </div>
+      </article>
+
+      <!-- WP LOOP END: endwhile -->
+
+    </div>
+
+    <!-- ============================
+         PAGINAÇÃO
+         ============================ -->
+    <!-- WP: paginate_links() -->
+    <nav class="pagination reveal" aria-label="Paginação do blog">
+      <a href="#" class="pagination-arrow" aria-label="Página anterior">«</a>
+      <a href="#" class="pagination-page active" aria-current="page">1</a>
+      <a href="#" class="pagination-page">2</a>
+      <a href="#" class="pagination-page">3</a>
+      <a href="#" class="pagination-arrow" aria-label="Próxima página">»</a>
+    </nav>
+
+  </div>
+</section>
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="img/logo_verde.png" alt="Logo Dra. Vivian Campos">
+        <p class="footer-crm">CRMSC 15858 · CRMSP 128588</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="carreira.html">Sobre a Dra.</a></li>
+          <li><a href="index.html#imunidade">Áreas de Atuação</a></li>
+          <li><a href="index.html#procedimentos">Estratégia de Cuidado</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html#cursos">Cursos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://api.whatsapp.com/send/?phone=5547999308000" target="_blank">Joinville, SC</a></li>
+          <li><a href="https://api.whatsapp.com/send/?phone=5547999308000" target="_blank">Balneário Camboriú, SC</a></li>
+          <li><a href="https://api.whatsapp.com/send/?phone=5547999308000" target="_blank">(47) 9 9930-8000</a></li>
+          <li><a href="https://www.instagram.com/draviviancampos/">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dra. Vivian Campos — Todos os direitos reservados</p>
+      <p>Desenvolvido por Pedro Daguer</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================
+     JAVASCRIPT
+     ============================ -->
+<script src="js/app.js" defer></script>
+
+</body>
+</html>

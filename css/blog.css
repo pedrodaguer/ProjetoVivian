@@ -1,0 +1,304 @@
+/* ========================================
+   BLOG — Listagem & Post individual
+   (reaproveita o design system de style.css)
+   ======================================== */
+
+/* ── PLACEHOLDERS DE IMAGEM (continuação de bph1-3 do style.css) ── */
+.bph4 { background: linear-gradient(135deg, var(--verde-escuro), var(--verde-claro)); opacity: 0.85; }
+.bph5 { background: linear-gradient(135deg, #b9ad94, var(--bege)); }
+.bph6 { background: linear-gradient(135deg, var(--dourado-escuro), #c9b98a); opacity: 0.7; }
+
+/* ========================================
+   HERO / HEADER DAS PÁGINAS (escuro — nav legível)
+   ======================================== */
+.blog-page-hero,
+.post-hero {
+  position: relative;
+  background: var(--preto);
+  color: var(--branco);
+  padding: 180px 0 90px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.blog-page-hero::before,
+.post-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 70% 50%, #0d2a1e 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.blog-page-hero::after,
+.post-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+.blog-page-hero > .container,
+.post-hero > .container { position: relative; z-index: 2; }
+
+.blog-page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.5vw, 76px);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  line-height: 1.02;
+  margin: 14px 0 0;
+}
+.blog-page-hero h1 em { font-style: italic; color: var(--dourado); }
+.blog-page-hero .gold-line { margin: 22px 0 24px; }
+.blog-page-intro {
+  max-width: 620px;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ========================================
+   LISTAGEM
+   ======================================== */
+.blog-list {
+  background: var(--bege-claro);
+  padding: clamp(60px, 8vw, 110px) 0;
+}
+.blog-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* O card branco já vem de style.css (.blog-card). Ajustes da listagem: */
+.blog-list-grid .blog-card-img {
+  display: block;
+  aspect-ratio: 16/10;
+}
+.blog-list-grid .blog-card h3 a { color: inherit; transition: color 0.3s; }
+.blog-list-grid .blog-card:hover h3 a { color: var(--verde-medio); }
+
+.blog-card-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--verde-escuro);
+  transition: color 0.3s, transform 0.3s;
+}
+.blog-card:hover .blog-card-link { color: var(--dourado-escuro); transform: translateX(4px); }
+
+/* ========================================
+   PAGINAÇÃO
+   ======================================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(48px, 6vw, 72px);
+}
+.pagination-page,
+.pagination-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px; height: 42px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cinza-escuro);
+  border: 1px solid rgba(27,67,50,0.18);
+  border-radius: 2px;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.pagination-page:hover,
+.pagination-arrow:hover {
+  border-color: var(--dourado);
+  color: var(--dourado-escuro);
+}
+.pagination-page.active {
+  background: var(--verde-escuro);
+  color: var(--branco);
+  border-color: var(--verde-escuro);
+}
+
+/* ========================================
+   POST — HERO / CAPA / META
+   ======================================== */
+.post { background: var(--branco-suave); }
+
+.post-hero { padding-bottom: 70px; }
+.post-hero-inner { max-width: 820px; }
+.post-kicker {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 22px;
+  transition: color 0.3s;
+}
+.post-kicker:hover { color: var(--dourado); }
+.post-hero .blog-tag { color: var(--dourado); margin-bottom: 14px; }
+.post-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.4vw, 60px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  margin-bottom: 22px;
+}
+.post-meta {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.6);
+}
+.post-meta strong { font-weight: 600; color: var(--branco); }
+
+/* Capa — banda que sobe sobre o hero escuro (efeito editorial) */
+.post-cover-img {
+  height: clamp(240px, 38vw, 460px);
+  border-radius: 3px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0 30px 70px -34px rgba(0,0,0,0.55);
+}
+
+/* ========================================
+   POST — CORPO (otimizado para leitura)
+   ======================================== */
+.post-body {
+  max-width: 720px;
+  margin: clamp(48px, 6vw, 72px) auto 0;
+}
+.post-body p {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--cinza-escuro);
+  margin-bottom: 26px;
+}
+.post-body h2 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--verde-escuro);
+  margin: 48px 0 20px;
+}
+.post-body h3 {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--verde-escuro);
+  margin: 32px 0 14px;
+}
+.post-body a {
+  color: var(--dourado-escuro);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.3s;
+}
+.post-body a:hover { color: var(--verde-medio); }
+.post-body strong { font-weight: 600; color: var(--verde-escuro); }
+.post-body em { font-style: italic; }
+.post-body ul {
+  margin: 0 0 26px 0;
+  padding-left: 22px;
+  list-style: none;
+}
+.post-body ul li {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--cinza-escuro);
+  margin-bottom: 12px;
+  padding-left: 8px;
+}
+.post-body ul li::before {
+  content: '';
+  position: absolute;
+  left: -14px; top: 14px;
+  width: 6px; height: 6px;
+  background: var(--dourado);
+  border-radius: 50%;
+}
+.post-body blockquote {
+  margin: 36px 0;
+  padding: 8px 0 8px 26px;
+  border-left: 2px solid var(--dourado);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--verde-escuro);
+}
+
+/* ========================================
+   POST — RODAPÉ (CTA)
+   ======================================== */
+.post-footer-cta {
+  max-width: 720px;
+  margin: clamp(48px, 6vw, 72px) auto 0;
+  padding: 36px 0 clamp(60px, 8vw, 100px);
+  border-top: 1px solid rgba(27,67,50,0.14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.post-back {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--verde-escuro);
+  transition: color 0.3s, transform 0.3s;
+}
+.post-back:hover { color: var(--dourado-escuro); transform: translateX(-4px); }
+
+/* ========================================
+   RESPONSIVO
+   ======================================== */
+@media (max-width: 1024px) {
+  .blog-list-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .blog-page-hero,
+  .post-hero { padding: 140px 0 70px; }
+}
+
+@media (max-width: 640px) {
+  .blog-list-grid { grid-template-columns: 1fr; gap: 20px; }
+  .post-body p,
+  .post-body ul li { font-size: 16px; line-height: 1.8; }
+  .post-cover-img { margin-top: -30px; }
+  .post-footer-cta { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .blog-page-hero,
+  .post-hero { padding: 110px 0 50px; }
+  .blog-page-hero h1 { font-size: clamp(32px, 11vw, 48px); }
+  .post-title { font-size: clamp(28px, 9vw, 40px); }
+  .post-footer-cta .btn-primary { width: 100%; justify-content: center; }
+}
