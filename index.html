@@ -11,8 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -58,13 +58,16 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div>
-    <img class="hero-photo" src="img/main.png" alt="Dra. Vivian Campos">
+    <picture>
+      <source srcset="img/main.webp" type="image/webp">
+      <img class="hero-photo" src="img/main.png" alt="Dra. Vivian Campos" width="1600" height="2396" fetchpriority="high" decoding="async">
+    </picture>
   </div>
 
   <div class="hero-overlay"></div>
 
   <div class="hero-content container">
-    <img class="hero-logo" src="img/logo_bege.png" alt="Logo Instituto Vivian Campos">
+    <img class="hero-logo" src="img/logo_bege.png" alt="Logo Instituto Vivian Campos" width="2560" height="888" decoding="async">
     <p class="hero-crm">CRMSC 15858 &nbsp;|&nbsp; CRMSP 128588</p>
     <div class="hero-actions">
       <a href="#sobre" class="btn-primary">
@@ -89,7 +92,7 @@
     <div class="sobre-inner">
       <div class="sobre-photo-wrap reveal-left">
         <div class="sobre-photo-frame">
-          <img src="img/bio2.jpg" alt="Dra. Vivian Campos">
+          <img src="img/bio2.jpg" alt="Dra. Vivian Campos" width="1600" height="1954" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="sobre-text">
@@ -257,9 +260,9 @@
       </div>
       <div class="abordagem-visual reveal-right">
         <div class="abordagem-photo-grid">
-          <div class="grid-photo"><div class="grid-photo-ph gp1"><img src="img/clinica5.jpg" alt="Dra. Vivian Campos"></div></div>
-          <div class="grid-photo"><div class="grid-photo-ph gp2"><img src="img/clinica2.jpg" alt="Dra. Vivian Campos"></div></div>
-          <div class="grid-photo"><div class="grid-photo-ph gp3"><img src="img/clinica1.jpg" alt="Dra. Vivian Campos"></div></div>
+          <div class="grid-photo"><div class="grid-photo-ph gp1"><img src="img/clinica5.jpg" alt="Dra. Vivian Campos" width="1600" height="2144" loading="lazy" decoding="async"></div></div>
+          <div class="grid-photo"><div class="grid-photo-ph gp2"><img src="img/clinica2.jpg" alt="Dra. Vivian Campos" width="1600" height="2396" loading="lazy" decoding="async"></div></div>
+          <div class="grid-photo"><div class="grid-photo-ph gp3"><img src="img/clinica1.jpg" alt="Dra. Vivian Campos" width="1600" height="2396" loading="lazy" decoding="async"></div></div>
         </div>
       </div>
     </div>
@@ -369,10 +372,10 @@
     <div class="programa-inner">
       <div class="programa-photos reveal-left">
         <div class="programa-photo-main">
-          <img src="img/academia2.jpg" alt="Dra. Vivian Campos">
+          <img src="img/academia2.jpg" alt="Dra. Vivian Campos" width="1600" height="1870" loading="lazy" decoding="async">
         </div>
         <div class="programa-photo-sec">
-          <img src="img/academia1.jpg" alt="Dra. Vivian Campos">
+          <img src="img/academia1.jpg" alt="Dra. Vivian Campos" width="1600" height="1848" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="programa-text">
@@ -408,7 +411,7 @@
       <div class="curso-card reveal">
         <div class="curso-card-header" style="background: linear-gradient(135deg, #1a1510 0%, #201a11 100%);">
           <div class="curso-card-logo">
-            <img src="img/LogoMIR.png">
+            <img src="img/LogoMIR.png" alt="Logo da Mentoria MIR — Metabolic Immune Reset" width="3508" height="1044" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="curso-card-body">
@@ -433,7 +436,7 @@
       <div class="curso-card reveal">
         <div class="curso-card-header" style="background: linear-gradient(135deg, #0f1f15 0%, #1B4332 100%);">
           <div class="curso-card-logo">
-            <img src="img/metabolizein.png">
+            <img src="img/metabolizein.png" alt="Logo do programa MetabolizeIN Online" width="1079" height="357" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="curso-card-body">
@@ -458,7 +461,7 @@
       <div class="curso-card reveal">
         <div class="curso-card-header" style="background: linear-gradient(135deg, #0a1520 0%, #162536 100%);">
           <div class="curso-card-logo">
-            <img src="img/nutricode.png">
+            <img src="img/nutricode.png" alt="Logo do curso Nutricode" width="2560" height="1101" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="curso-card-body">
@@ -483,7 +486,7 @@
       <div class="curso-card reveal">
         <div class="curso-card-header curso-card-header--cover" style="background: #1a0f18;">
           <div class="curso-card-logo curso-card-logo--cover">
-            <img src="img/ebook_bp1.png">
+            <img src="img/ebook_bp1.png" alt="Capa do e-book Beleza Perigosa" width="1080" height="918" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="curso-card-body">
@@ -531,7 +534,7 @@
     </div>
     <div class="blog-grid">
       <div class="blog-card blog-card-large reveal">
-        <a href="post-detalhes.html" class="blog-card-img">
+        <a href="post-detalhes.html" class="blog-card-img" aria-label="Ler o artigo: Como fortalecer o sistema imunológico com medicina funcional integrativa">
           <div class="blog-card-ph bph1" style="height:260px;"></div>
         </a>
         <div class="blog-card-body">
@@ -542,7 +545,7 @@
         </div>
       </div>
       <div class="blog-card reveal">
-        <a href="post-detalhes.html" class="blog-card-img">
+        <a href="post-detalhes.html" class="blog-card-img" aria-label="Ler o artigo: Alimentação anti-inflamatória: por onde começar">
           <div class="blog-card-ph bph2" style="height:180px;"></div>
         </a>
         <div class="blog-card-body">
@@ -553,7 +556,7 @@
         </div>
       </div>
       <div class="blog-card reveal">
-        <a href="post-detalhes.html" class="blog-card-img">
+        <a href="post-detalhes.html" class="blog-card-img" aria-label="Ler o artigo: REAC, a tecnologia que está revolucionando a medicina integrativa">
           <div class="blog-card-ph bph3" style="height:180px;"></div>
         </a>
         <div class="blog-card-body">
@@ -579,12 +582,12 @@
         <p class="reveal-left">O cuidado no Instituto Vivian Campos é conduzido por uma equipe que atua de forma integrada, organizando cada etapa do processo para que o paciente seja acompanhado com critério, continuidade e estratégia. Os atendimentos acontecem em Joinville e Balneário Camboriú, dentro de um modelo estruturado de acompanhamento, voltado para quem busca mais do que intervenções pontuais, mas um cuidado que se sustenta ao longo do tempo.</p>
 
         <div class="clinica-info reveal-left">
-          <h4>Joinville — SC</h4>
+          <h3>Joinville — SC</h3>
           <p>R. Aracaju, 1382 - Santo Antônio</p>
           <p>Horário de atendimento: Seg–Qui das 08h às 19h | Sextas-feiras das 08h às 18h </p>
         </div>
         <div class="clinica-info reveal-left">
-          <h4>Balneário Camboriú — SC</h4>
+          <h3>Balneário Camboriú — SC</h3>
           <p>Av. Carlos Drummond de Andrade, 789 - Praia Brava</p>
           <p>Horário de atendimento: Seg-Sex das 08h às 19h</p>
         </div>
@@ -604,7 +607,7 @@
       </div>
 
       <div class="contato-photo reveal-right">
-        <img src="img/fachada.PNG" alt="Clínica Dra. Vivian Campos">
+        <img src="img/fachada.jpg" alt="Fachada da clínica da Dra. Vivian Campos" width="1025" height="1536" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
@@ -617,7 +620,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="img/logo_verde.png" alt="Logo Dra. Vivian Campos">
+        <img src="img/logo_verde.png" alt="Logo Dra. Vivian Campos" width="2560" height="888" loading="lazy" decoding="async">
         <p class="footer-crm">CRMSC 15858 · CRMSP 128588</p>
       </div>
       <div class="footer-col">
