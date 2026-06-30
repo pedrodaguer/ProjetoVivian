@@ -1215,6 +1215,13 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   background: var(--verde-escuro);
   border: 3px solid var(--branco-suave);
 }
+.programa-photo-main img,
+.programa-photo-sec img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .ph-main { background: linear-gradient(160deg, #9aaa98, #5a7058); }
 .ph-sec  { background: var(--verde-escuro); }
 .ph-inner {
