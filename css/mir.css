@@ -1132,7 +1132,12 @@
   .mir-rede-card-num { font-size: 60px; }
 
   /* Mentora */
-  .mir-mentora-photo { height: clamp(260px, 65vw, 400px); }
+  .mir-mentora-photo {
+    height: auto;
+    aspect-ratio: 1536 / 2730;
+    max-height: 78vh;
+    object-position: center top;
+  }
 
   /* Bullets */
   .mir-bullet { grid-template-columns: 36px 1fr; gap: 14px; }

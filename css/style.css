@@ -1455,7 +1455,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 /* ========================================
    BLOG
    ======================================== */
-.blog {
+section.blog {
   background: var(--bege-claro);
   padding: var(--section-pad) 0;
 }
@@ -1876,7 +1876,9 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 
   /* Programa */
   .programa-inner { gap: 28px; }
-  .programa-photos { height: clamp(220px, 65vw, 340px); }
+  .programa-photos { height: clamp(380px, 100vw, 480px); }
+  .programa-photo-main img,
+  .programa-photo-sec img { object-position: center 18%; }
 
   /* Contato — ocultar foto lateral */
   .contato-photo { display: none; }

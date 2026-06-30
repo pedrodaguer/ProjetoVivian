@@ -156,3 +156,46 @@ window.addEventListener('scroll', () => {
     gsap.set(heroBg, { y: scrolled * 0.3 });
   }
 });
+
+// =============================
+// ÂNCORAS — scroll com offset do nav fixo
+// (mesma página = smooth; cross-page = reposiciona após o layout assentar)
+// =============================
+(function () {
+  const navEl = document.getElementById('mainNav');
+
+  function scrollToHash(hash, smooth) {
+    const target = document.querySelector(hash);
+    if (!target) return false;
+    const navH = navEl ? navEl.offsetHeight : 0;
+    const y = target.getBoundingClientRect().top + window.pageYOffset - navH + 1;
+    window.scrollTo({ top: y, behavior: smooth ? 'smooth' : 'auto' });
+    return true;
+  }
+
+  // Ao chegar de outra página com #hash: posiciona depois que GSAP/imagens assentam.
+  if (window.location.hash && window.location.hash.length > 1) {
+    const hash = window.location.hash;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.addEventListener('load', () => {
+      requestAnimationFrame(() => setTimeout(() => {
+        if (window.ScrollTrigger) ScrollTrigger.refresh();
+        scrollToHash(hash, false);
+      }, 250));
+    });
+  }
+
+  // Cliques em links de âncora na mesma página: smooth com offset do nav.
+  document.querySelectorAll('a[href*="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      let url;
+      try { url = new URL(a.href, window.location.href); } catch (_) { return; }
+      const samePage = url.host === window.location.host && url.pathname === window.location.pathname;
+      if (samePage && url.hash.length > 1 && document.querySelector(url.hash)) {
+        e.preventDefault();
+        scrollToHash(url.hash, true);
+        history.pushState(null, '', url.hash);
+      }
+    });
+  });
+})();
