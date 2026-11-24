@@ -55,26 +55,6 @@ window.addEventListener('scroll', () => {
 });
 
 // =============================
-// COUNTERS
-// =============================
-document.querySelectorAll('.counter').forEach(counter => {
-  const target = parseInt(counter.dataset.target);
-  ScrollTrigger.create({
-    trigger: counter,
-    start: 'top 85%',
-    once: true,
-    onEnter: () => {
-      gsap.fromTo(counter,
-        { textContent: 0 },
-        { textContent: target, duration: 1.5, ease: 'power2.out', snap: { textContent: 1 },
-          onUpdate() { counter.textContent = Math.round(this.targets()[0].textContent); }
-        }
-      );
-    }
-  });
-});
-
-// =============================
 // ACCORDION FORMAÇÃO
 // =============================
 const formacaoToggle = document.getElementById('formacaoToggle');
