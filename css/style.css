@@ -1487,7 +1487,7 @@ section.blog {
 
 .blog-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   gap: 24px;
 }
 
@@ -1839,15 +1839,15 @@ section.blog {
   .sobre-photo-wrap { max-width: 440px; }
 }
 
-/* ---- MOBILE-LG (≤767px) ---- */
-@media (max-width: 767px) {
+/* ---- MOBILE-LG + TABLET RETRATO (≤1024px) ---- */
+@media (max-width: 1024px) {
   /* Nav — cancelar o translateX que existe no desktop, ajustar logo */
   .nav-inner { transform: none; gap: 12px; }
   .nav-logo { font-size: clamp(12px, 3.8vw, 16px); }
 
   /* Hero */
   .hero { min-height: 100svh; }
-  .hero-photo-left { display: none; },
+  .hero-photo-left,
   .hero-photo-right { display: none; }
   .hero-photo {
     left: -35px;
@@ -1990,6 +1990,38 @@ section.blog {
 
   /* Footer brand */
   .footer-brand { align-items: flex-start; text-align: left; }
+}
+
+/* ---- TABLET RETRATO (768–1024px) — reancorar imagens e centralizar ---- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Hero: desfazer o "hack" de celular e recentralizar a foto */
+  .hero-photo {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: clamp(440px, 62vw, 620px);
+    height: 80%;
+    margin: 0;
+    object-position: top center;
+  }
+  .hero-content { top: auto; }
+
+  /* Sobre: foto centralizada e com limite */
+  .sobre-photo-wrap { max-width: 460px; margin: 0 auto; }
+
+  /* Abordagem: grade de fotos com altura fluida e linhas iguais */
+  .abordagem-photo-grid { height: clamp(380px, 46vw, 460px); grid-template-rows: 1fr 1fr; }
+
+  /* Programa: caixa de fotos com respiro (evita corte) */
+  .programa-photos { height: clamp(420px, 52vw, 540px); }
+
+  /* Centralização consistente dos blocos de texto em coluna única */
+  .sobre-text, .abordagem-text, .programa-text, .imunidade-intro,
+  .cta-verde-inner, .contato-header { text-align: center; }
+  .sobre-text .gold-line.left,
+  .abordagem-text .gold-line.left,
+  .programa-text .gold-line.left,
+  .imunidade-intro .gold-line.left { margin-left: auto; margin-right: auto; }
 }
 
 /* ---- ULTRA-WIDE (≥1440px) ---- */

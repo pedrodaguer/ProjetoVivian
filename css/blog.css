@@ -282,7 +282,7 @@
   .blog-list-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .blog-page-hero,
   .post-hero { padding: 140px 0 70px; }
 }

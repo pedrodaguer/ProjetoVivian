@@ -173,7 +173,7 @@
 /* ========================================
    RESPONSIVE
    ======================================== */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .dra-hero { padding: 140px 0 70px; }
   .dra-instituto { padding: 36px 24px; }
 }
