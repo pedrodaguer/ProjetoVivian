@@ -13,7 +13,6 @@ heroTl
   .to('.hero-name',      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
   .to('.hero-tagline',   { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3')
   .to('.hero-logo',      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.2')
-  .to('.hero-crm',       { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.2')
   .to('.hero-actions',   { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.2')
   .to('.hero-scroll',    { opacity: 1, duration: 0.5 }, '-=0.2');
 
